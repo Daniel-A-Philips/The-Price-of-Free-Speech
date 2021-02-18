@@ -9,7 +9,7 @@ public class RunPython {
         System.out.println("This method has no contents");
     }
 
-    public static void run(String fileName) {
+    public static String Run(String fileName) {
         InputStream output = null;
         String text = null;
         try {
@@ -26,5 +26,6 @@ public class RunPython {
             System.out.println(e);
         }
         System.out.println(text);
+        return (text);
     }
 }
