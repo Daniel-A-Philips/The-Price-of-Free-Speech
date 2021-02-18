@@ -17,6 +17,7 @@ public class Stock {
     protected String Ticker;
     protected String Slice;
     protected String Time_Series = "INTRADAY_EXTENDED";
+    protected String APIKey = "4HRPSUDJ4S8WR99F";
     protected double LatestOpeningPrice;
     protected double SevenDayOpeningPrice;
 
@@ -44,7 +45,7 @@ public class Stock {
     }
 
     private void getHistory(String Time_Series, String Ticker, String Interval, String Slice) throws IOException {
-        URL url = new URL("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey=4HRPSUDJ4S8WR99F");
+        URL url = new URL("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try
         {
