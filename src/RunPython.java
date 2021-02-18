@@ -11,6 +11,7 @@ public class RunPython {
 
     public static void run(String fileName) {
         InputStream output = null;
+        String text = null;
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("python", "src//" + fileName);
             processBuilder.redirectErrorStream(true);
@@ -19,7 +20,6 @@ public class RunPython {
         } catch (IOException e) {
             System.out.println(e);
         }
-        String text;
         try (Scanner scanner = new Scanner(output, StandardCharsets.UTF_8.name())) {
             text = scanner.useDelimiter("\\A").next();
         } catch (Exception e) {
