@@ -14,14 +14,16 @@ class gui {
     public static JTextArea ta = new JTextArea();
     public static JPanel panel = new JPanel();
     public static JMenuBar mb = new JMenuBar();
-    public static JFrame frame = new JFrame("Main");
-    public static String text = "";
-    public static void main(String args[]) {
+    public static JFrame frame = new JFrame("The Price of Free Speech");
+    public static String text = "\n";
+    public static boolean Resizable = true;
+
+    public static void main(String[] args) {
 
         //Creating the Frame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 300);
-        frame.setResizable(false);
+        frame.setResizable(Resizable);
 
         //Creating the MenuBar and adding components
         JMenu m1 = new JMenu("FILE");
@@ -90,7 +92,7 @@ class gui {
         int MonthNumber = 0;
         int monthsLeft = 24;
         for (int i = 0; i < 12; i++) {
-            if (months[i].toLowerCase().equals(currentmonth.toLowerCase())) MonthNumber = i;
+            if (months[i].equalsIgnoreCase(currentmonth)) MonthNumber = i;
         }
         //Add months from the previous year
         for(int i = MonthNumber; i > -1; i--){

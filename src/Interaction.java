@@ -50,6 +50,6 @@ public class Interaction {
     }
 
     private void print(String data){
-        gui.WriteText("\n"+data);
+        gui.WriteText(data);
     }
 }
