@@ -54,7 +54,7 @@ class gui {
             panel.add(Text.get(i));
         }
         // Dropdown Menu selection
-        panel.add(new JLabel("Month"));
+        panel.add(new JLabel("\tMonth"));
         panel.add(SliceButton);
         //
         panel.add(select);
@@ -70,18 +70,18 @@ class gui {
 
     public static void createLabels(){
         JLabel TickerLabel = new JLabel("Ticker");
-        JLabel IntervalLabel = new JLabel("Interval");
+        JLabel IntervalLabel = new JLabel("\tInterval (Minutes)");
         Labels = new ArrayList<>(Arrays.asList(TickerLabel,IntervalLabel));
     }
 
-    public static void createText(){
-        JTextField TickerText = new JTextField(10); // accepts upto 10 characters
-        JTextField IntervalText = new JTextField(10);
-        Text = new ArrayList<>(Arrays.asList(TickerText,IntervalText));
+    public static void createText() {
+        JTextField TickerText = new JTextField(6); // accepts up to 6 characters
+        JTextField IntervalText = new JTextField(6);
+        Text = new ArrayList<>(Arrays.asList(TickerText, IntervalText));
     }
 
     /**
-     * A method that calculates which months and years should be shownin the dropdown menu as well as there order
+     * A method that calculates which months and years should be showning the dropdown menu as well as there order
      */
     public static void createDropdown() {
         ArrayList<String> Months = new ArrayList<>();
