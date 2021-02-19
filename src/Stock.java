@@ -25,19 +25,24 @@ public class Stock {
         this.IntervalTime = IntervalTime;
         this.Ticker = Ticker;
         this.Slice = Slice;
-        if(IntervalTime.equals("")) this.IntervalTime = "5";
-        if(Ticker.equals("")) this.Ticker = "IBM";
-        if(Slice.equals("")) this.Slice = "year1month1";
+        if (IntervalTime.equals("")) this.IntervalTime = "5";
+        if (Ticker.equals("")) this.Ticker = "IBM";
+        if (Slice.equals("")) this.Slice = "year1month1";
         run();
     }
 
+    /**
+     * Used to test the Stock class
+     */
     public Stock() {
         IntervalTime = "5";
         Ticker = "IBM";
         Slice = "year1month1";
-        try{
+        try {
             run();
-        }catch(Exception e){System.out.println(e);}
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void run() throws IOException {
@@ -62,7 +67,7 @@ public class Stock {
         catch(IOException E){System.out.println(E);}
         finally {urlConnection.disconnect();}
         RawData = parseData();
-        DayData = GetCurrentDayData();
+        DayData = GetDayData();
         WeekData = GetWeekData();
         LatestOpeningPrice = getLatestOpenPrice();
         SevenDayOpeningPrice = getSevenDayOpeningPrice();
@@ -78,12 +83,12 @@ public class Stock {
         return ParsedData;
     }
 
-    public ArrayList<String[]> GetCurrentDayData(){
+    public ArrayList<String[]> GetDayData() {
         ArrayList<String[]> DailyData = new ArrayList<>();
         DailyData.add(RawData.get(0));
-        String CurrentDay = RawData.get(1)[0].substring(0,RawData.get(1)[0].indexOf(":")-3);
-        for(int i = 1; i < RawData.size(); i++){
-            if(RawData.get(i)[0].contains(CurrentDay)) DailyData.add(RawData.get(i));
+        String CurrentDay = RawData.get(1)[0].substring(0, RawData.get(1)[0].indexOf(":") - 3);
+        for (int i = 1; i < RawData.size(); i++) {
+            if (RawData.get(i)[0].contains(CurrentDay)) DailyData.add(RawData.get(i));
             else break;
         }
         return DailyData;
@@ -132,45 +137,61 @@ public class Stock {
 
     /**
      * A method to find the average price of a stock on a set interval on the most recent day
+     *
      * @return the average price of a stock as a double
      */
-    public double AvgCurrentDayPrice(){
+    public double AvgDayPrice() {
         double tp = 0.0;
-        for(int i = 1; i < DayData.size(); i++){
-            tp += (Double.parseDouble(RawData.get(i)[1])+Double.parseDouble(RawData.get(i)[2])+Double.parseDouble(RawData.get(i)[3])+Double.parseDouble(RawData.get(i)[4]))/4;
+        for (int i = 1; i < DayData.size(); i++) {
+            tp += (Double.parseDouble(RawData.get(i)[1]) + Double.parseDouble(RawData.get(i)[2]) + Double.parseDouble(RawData.get(i)[3]) + Double.parseDouble(RawData.get(i)[4])) / 4;
         }
-        double ap = tp/(DayData.size()-1);
+        double ap = tp / (DayData.size() - 1);
         return ap;
     }
 
-    public double AvgDayPrice(ArrayList<String[]> data){
+    /**
+     * A method to find the average price of a stock on a given day
+     *
+     * @param data refers to the 2d array containing this format [Time, Open, High, Low, Close, Volume]
+     * @return the average price of a given stock as a double
+     */
+    public double AvgDayPrice(ArrayList<String[]> data) {
         double tp = 0.0;
-        for(int i = 0; i < data.size(); i++){
-            tp += (Double.parseDouble(data.get(i)[1])+Double.parseDouble(data.get(i)[2])+Double.parseDouble(data.get(i)[3])+Double.parseDouble(data.get(i)[4]))/4;
+        for (int i = 0; i < data.size(); i++) {
+            tp += (Double.parseDouble(data.get(i)[1]) + Double.parseDouble(data.get(i)[2]) + Double.parseDouble(data.get(i)[3]) + Double.parseDouble(data.get(i)[4])) / 4;
         }
-        double ap = tp/(data.size()-1);
+        double ap = tp / (data.size() - 1);
         return ap;
     }
 
-    public double AvgSevenPrice(){
+    public double AvgSevenPrice() {
         double total = 0;
-        for(ArrayList<String[]> as : WeekData){
+        for (ArrayList<String[]> as : WeekData) {
             total += AvgDayPrice(as);
         }
-        return total/7;
+        return total / 7;
+    }
+
+    public double AvgSevenPrice(ArrayList<ArrayList<String[]>> weekdata) {
+        double total = 0;
+        for (ArrayList<String[]> as : weekdata) {
+            total += AvgDayPrice(as);
+        }
+        return total / 7;
     }
 
     /**
      * A method to find the standard deviation of a given stock for the most recent day
+     *
      * @return the standard deviation of the stock as a double
      */
-    public double CurrentDayDeviation(){
+    public double DayDeviation() {
         double top = 0.0;
-        for(int i = 1; i < DayData.size(); i++){
-            top += Math.pow(((Float.parseFloat(DayData.get(i)[1])+Float.parseFloat(DayData.get(i)[2])+Float.parseFloat(DayData.get(i)[3])+Float.parseFloat(DayData.get(i)[4]))/4.0)-AvgCurrentDayPrice(),2.0);
+        for (int i = 1; i < DayData.size(); i++) {
+            top += Math.pow(((Float.parseFloat(DayData.get(i)[1]) + Float.parseFloat(DayData.get(i)[2]) + Float.parseFloat(DayData.get(i)[3]) + Float.parseFloat(DayData.get(i)[4])) / 4.0) - AvgDayPrice(), 2.0);
         }
-        double bottom = DayData.size()-2;
-        double total = top/bottom;
+        double bottom = DayData.size() - 2;
+        double total = top / bottom;
         return Math.sqrt(total);
     }
 
@@ -189,8 +210,8 @@ public class Stock {
         return Math.sqrt(top/Bottom);
     }
 
-    public double CurrentDayDeviationPercentage(){
-        return CurrentDayDeviation()/AvgCurrentDayPrice();
+    public double CurrentDayDeviationPercentage() {
+        return DayDeviation()/AvgDayPrice();
     }
 
     public double SevenDayDeviationPercentage(){

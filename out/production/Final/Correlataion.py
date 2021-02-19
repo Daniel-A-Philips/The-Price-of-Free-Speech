@@ -10,5 +10,5 @@
 # Variance = pd.Series("Need to import the standard deviations and then square them")
 # Tweets = pd.Series("Need to find Twitter API and count # of tweets")
 #
-# Variance.corr(Tweets,method=histogram_intersection())
+# Variance.corr(Tweets,method=histogram_intersection(),min_periods=10)
 #

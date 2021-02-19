@@ -3,7 +3,7 @@ import java.io.IOException;
 public class Interaction {
     private String Ticker;
     private String Interval;
-    private int MonthIndex;
+    private final int MonthIndex;
     private String Slice;
 
     Interaction(String Ticker, String Interval, int MonthIndex) throws IOException {
@@ -14,8 +14,7 @@ public class Interaction {
         ParseInterval();
         ParseSlice();
         Stock stock = new Stock(this.Ticker,this.Interval,Slice);
-        print("Day SD of "+this.Ticker+": "+stock.CurrentDayDeviation()+"\nDaily Average of "+this.Ticker+": "+stock.AvgCurrentDayPrice());
-
+        print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.AvgDayPrice());
     }
 
     private void ParseTicker(){
