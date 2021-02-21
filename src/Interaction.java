@@ -10,11 +10,17 @@ public class Interaction {
         this.Ticker = Ticker;
         this.Interval = Interval;
         this.MonthIndex = MonthIndex;
-        ParseTicker();
-        ParseInterval();
-        ParseSlice();
-        Stock stock = new Stock(this.Ticker,this.Interval,Slice);
-        print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.AvgDayPrice());
+    
+    }
+
+    public void run(){
+        try{
+            ParseTicker();
+            ParseInterval();
+            ParseSlice();
+            Stock stock = new Stock(Ticker,Interval,Slice);
+            print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.AvgDayPrice());
+        } catch(Exception e){System.err.println(e);}
     }
 
     private void ParseTicker(){

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.WindowConstants;
 
 class gui {
     public static ArrayList<JLabel> Labels = new ArrayList<>();
@@ -15,13 +16,13 @@ class gui {
     public static JPanel panel = new JPanel();
     public static JMenuBar mb = new JMenuBar();
     public static JFrame frame = new JFrame("The Price of Free Speech");
-    public static String text = "\n";
+    public static String toPrint = "\n";
     public static boolean Resizable = true;
 
     public static void main(String[] args) {
 
         //Creating the Frame
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(800, 300);
         frame.setResizable(Resizable);
 
@@ -43,7 +44,8 @@ class gui {
             public void actionPerformed(ActionEvent e){
                 try {
                     Interaction interaction = new Interaction(Text.get(0).getText(),Text.get(1).getText(),SliceButton.getSelectedIndex());
-                    ta.append("\n"+text);
+                    interaction.run();
+                    ta.append("\n"+toPrint);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -58,7 +60,7 @@ class gui {
         panel.add(SliceButton);
         //
         panel.add(select);
-        ta = new JTextArea(text);
+        ta = new JTextArea(toPrint);
 
         // Text Area at the Center
         //Adding Components to the frame.
@@ -114,7 +116,7 @@ class gui {
     }
 
     public static void WriteText(String Text){
-        text = Text;
+        toPrint = Text;
     }
 
 }
