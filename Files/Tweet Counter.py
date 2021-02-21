@@ -1,29 +1,76 @@
-# import TwitterAPI
+from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRequestError, TwitterConnectionError
 import csv
 #
 # #https://geduldig.github.io/tutorials/twitter-counter/
 #
-# API_KEY =
-# API_SECRET =
-# ACCESS_TOKEN =
-# ACCESS_TOKEN_SECRET=
-#
-# accounts = []
-# reader = open("Twits.txt","r")
-# for line in reader:
-# accounts.append(line)
 
 
-# api = TwitterAPI(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+def main():
+    global api
+    global tweets
+    global accounts
+    global API_KEY
+    global API_SECRET
+    global ACCESS_TOKEN
+    global ACCESS_TOKEN_SECRET
+    API_KEY = ""
+    API_SECRET = ""
+    ACCESS_TOKEN = ""
+    ACCESS_TOKEN_SECRET= ""
+    api = TwitterAPI(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET,api_version=2)
 
-originalData = []
-with open('D:\Topics in Computer Science\Final\Data.csv',newline='') as csvfile:
-    reader = csv.reader(csvfile,delimiter=",")
-    for row in reader:
-        originalData.append(row)
 
-newData = originalData
-newData[0].append("tweets")
+def getTwitterData(ID):
+    tweets = []
+    try:
+        # Get tweets - default setting
+        tweets = api.request(f'users/:{ID}/tweets')
+        for t in tweets:
+            print(t)
 
-for row in newData:
-    print(row)
+        # Get tweets with customization - (5 tweets only with created_at timestamp)
+        print()
+        params = {'max_results': 1000, 'tweet.fields': 'created_at'}
+        tweets = api.request(f'users/:{ID}/tweets', params)
+        for t in tweets:
+            print(t)
+    
+    except TwitterRequestError as e:
+        print('Request error')
+        print(e.status_code)
+        for msg in iter(e):
+            print(msg)
+
+    except TwitterConnectionError as e:
+        print('Connection error')
+        print(e)
+
+    except Exception as e:
+        print('Exception')
+        print(e)
+    
+    return tweets
+
+def getWantedAccounts():
+    accounts = []
+    reader = open("Twits.txt","r")
+    for line in reader:
+        accounts.append(line)
+
+def writeData():
+    originalData = []
+    with open('D:\Topics in Computer Science\Final\Data.csv',newline='') as csvfile:
+        reader = csv.reader(csvfile,delimiter=",")
+        for row in reader:
+            originalData.append(row)
+
+    newData = originalData
+    if not newData[0].contains("tweets"):
+        newData[0].append("tweets")
+
+
+
+
+
+if __name__ == "__main__":
+    main()
