@@ -9,15 +9,15 @@ import java.util.Arrays;
 import javax.swing.WindowConstants;
 
 class gui {
-    public static ArrayList<JLabel> Labels = new ArrayList<>();
-    public static ArrayList<JTextField> Text = new ArrayList<>();
-    public static JComboBox<String> SliceButton;
-    public static JTextArea ta = new JTextArea();
-    public static JPanel panel = new JPanel();
-    public static JMenuBar mb = new JMenuBar();
-    public static JFrame frame = new JFrame("The Price of Free Speech");
-    public static String toPrint = "\n";
-    public static boolean Resizable = true;
+    private static ArrayList<JLabel> Labels = new ArrayList<>();
+    private static ArrayList<JTextField> Text = new ArrayList<>();
+    private static JComboBox<String> SliceButton;
+    private static JTextArea ta = new JTextArea();
+    private static JPanel panel = new JPanel();
+    private static JMenuBar mb = new JMenuBar();
+    private static JFrame frame = new JFrame("The Price of Free Speech");
+    private static String toPrint = "\n";
+    private static boolean Resizable = true;
 
     public static void main(String[] args) {
 
@@ -70,13 +70,13 @@ class gui {
         frame.setVisible(true);
     }
 
-    public static void createLabels(){
+    private static void createLabels(){
         JLabel TickerLabel = new JLabel("Ticker");
         JLabel IntervalLabel = new JLabel("\tInterval (Minutes)");
         Labels = new ArrayList<>(Arrays.asList(TickerLabel,IntervalLabel));
     }
 
-    public static void createText() {
+    private static void createText() {
         JTextField TickerText = new JTextField(6); // accepts up to 6 characters
         JTextField IntervalText = new JTextField(6);
         Text = new ArrayList<>(Arrays.asList(TickerText, IntervalText));
@@ -85,7 +85,7 @@ class gui {
     /**
      * A method that calculates which months and years should be showning the dropdown menu as well as there order
      */
-    public static void createDropdown() {
+    private static void createDropdown() {
         ArrayList<String> Months = new ArrayList<>();
         String[] months = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
         LocalDate currentdate = LocalDate.now();

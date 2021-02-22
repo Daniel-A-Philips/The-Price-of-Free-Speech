@@ -13,7 +13,7 @@ public class RunPython {
         InputStream output = null;
         String text = null;
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("python", "src//" + fileName);
+            ProcessBuilder processBuilder = new ProcessBuilder("python", fileName);
             processBuilder.redirectErrorStream(true);
             Process process = processBuilder.start();
             output = (process.getInputStream());

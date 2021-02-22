@@ -56,7 +56,7 @@ public class Stock {
         {
             InputStream in = url.openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            File file = new File("Data.csv");
+            File file = new File("Data\\Data.csv");
             FileWriter writer = new FileWriter(file);
             String line;
             while((line = reader.readLine()) != null) {
@@ -67,7 +67,7 @@ public class Stock {
         catch(IOException E){System.out.println(E);}
         finally {urlConnection.disconnect();}
         RawData = parseData();
-        DayData = GetDayData();
+        DayData = getDayData();
         WeekData = GetWeekData();
         LatestOpeningPrice = getLatestOpenPrice();
         SevenDayOpeningPrice = getSevenDayOpeningPrice();
@@ -75,7 +75,7 @@ public class Stock {
 
     private ArrayList<String[]> parseData() throws IOException {
         ArrayList<String[]> ParsedData = new ArrayList<String[]>();
-        BufferedReader reader = new BufferedReader(new FileReader("Data.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("Data\\Data.csv"));
         String line;
         while((line = reader.readLine()) != null){
             ParsedData.add(line.split(","));
@@ -83,7 +83,7 @@ public class Stock {
         return ParsedData;
     }
 
-    public ArrayList<String[]> GetDayData() {
+    private ArrayList<String[]> getDayData() {
         ArrayList<String[]> DailyData = new ArrayList<>();
         DailyData.add(RawData.get(0));
         String CurrentDay = RawData.get(1)[0].substring(0, RawData.get(1)[0].indexOf(":") - 3);
@@ -94,7 +94,7 @@ public class Stock {
         return DailyData;
     }
 
-    public ArrayList<String[]> GetDayData(String Date){
+    private ArrayList<String[]> getDayData(String Date){
         ArrayList<String[]> DayData = new ArrayList<>();
         int start = -1;
         int end = -1;
@@ -111,7 +111,7 @@ public class Stock {
         return DayData;
     }
 
-    public ArrayList<ArrayList<String[]>> GetWeekData(){
+    private ArrayList<ArrayList<String[]>> GetWeekData(){
         ArrayList<ArrayList<String[]>> WeekData = new ArrayList<>();
         String[] Week = new String[7];
         Week[0] = RawData.get(1)[0];
@@ -124,23 +124,23 @@ public class Stock {
             }
         }
         for(String date : Week){
-            WeekData.add(GetDayData(date));
+            WeekData.add(getDayData(date));
         }
         return WeekData;
     }
 
-    public double getLatestOpenPrice(){
+    private double getLatestOpenPrice(){
         return Double.parseDouble(DayData.get(DayData.size()-1)[1]);
     }
 
-    public double getSevenDayOpeningPrice(){ return Double.parseDouble(WeekData.get(6).get(WeekData.get(6).size()-1)[1]);}
+    private double getSevenDayOpeningPrice(){ return Double.parseDouble(WeekData.get(6).get(WeekData.get(6).size()-1)[1]);}
 
     /**
      * A method to find the average price of a stock on a set interval on the most recent day
      *
      * @return the average price of a stock as a double
      */
-    public double AvgDayPrice() {
+    public double avgDayPrice() {
         double tp = 0.0;
         for (int i = 1; i < DayData.size(); i++) {
             tp += (Double.parseDouble(RawData.get(i)[1]) + Double.parseDouble(RawData.get(i)[2]) + Double.parseDouble(RawData.get(i)[3]) + Double.parseDouble(RawData.get(i)[4])) / 4;
@@ -155,7 +155,7 @@ public class Stock {
      * @param data refers to the 2d array containing this format [Time, Open, High, Low, Close, Volume]
      * @return the average price of a given stock as a double
      */
-    public double AvgDayPrice(ArrayList<String[]> data) {
+    public double avgDayPrice(ArrayList<String[]> data) {
         double tp = 0.0;
         for (int i = 0; i < data.size(); i++) {
             tp += (Double.parseDouble(data.get(i)[1]) + Double.parseDouble(data.get(i)[2]) + Double.parseDouble(data.get(i)[3]) + Double.parseDouble(data.get(i)[4])) / 4;
@@ -164,18 +164,18 @@ public class Stock {
         return ap;
     }
 
-    public double AvgSevenPrice() {
+    public double avgSevenDayPrice() {
         double total = 0;
         for (ArrayList<String[]> as : WeekData) {
-            total += AvgDayPrice(as);
+            total += avgDayPrice(as);
         }
         return total / 7;
     }
 
-    public double AvgSevenPrice(ArrayList<ArrayList<String[]>> weekdata) {
+    public double avgSevenDayPrice(ArrayList<ArrayList<String[]>> weekdata) {
         double total = 0;
         for (ArrayList<String[]> as : weekdata) {
-            total += AvgDayPrice(as);
+            total += avgDayPrice(as);
         }
         return total / 7;
     }
@@ -188,18 +188,18 @@ public class Stock {
     public double DayDeviation() {
         double top = 0.0;
         for (int i = 1; i < DayData.size(); i++) {
-            top += Math.pow(((Float.parseFloat(DayData.get(i)[1]) + Float.parseFloat(DayData.get(i)[2]) + Float.parseFloat(DayData.get(i)[3]) + Float.parseFloat(DayData.get(i)[4])) / 4.0) - AvgDayPrice(), 2.0);
+            top += Math.pow(((Float.parseFloat(DayData.get(i)[1]) + Float.parseFloat(DayData.get(i)[2]) + Float.parseFloat(DayData.get(i)[3]) + Float.parseFloat(DayData.get(i)[4])) / 4.0) - avgDayPrice(), 2.0);
         }
         double bottom = DayData.size() - 2;
         double total = top / bottom;
         return Math.sqrt(total);
     }
 
-    public double SevenDayDeviation(){
+    public double sevenDayDeviation(){
         double top = 0.0;
         for(int i = 0; i < 7; i++){
             for(ArrayList<String[]> as : WeekData){
-                top += Math.pow((AvgDayPrice(as)-AvgSevenPrice()),2);
+                top += Math.pow( avgDayPrice(as)-avgSevenDayPrice()),2);
             }
         }
         double Bottom = 0.0;
@@ -210,12 +210,12 @@ public class Stock {
         return Math.sqrt(top/Bottom);
     }
 
-    public double CurrentDayDeviationPercentage() {
-        return DayDeviation()/AvgDayPrice();
+    public double currentDayDeviationPercentage() {
+        return DayDeviation()/avgDayPrice();
     }
 
-    public double SevenDayDeviationPercentage(){
-        return SevenDayDeviation()/AvgSevenPrice();
+    public double sevenDayDeviationPercentage(){
+        return sevenDayDeviation()/avgSevenDayPrice();
     }
 
 }

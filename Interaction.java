@@ -3,7 +3,7 @@ import java.io.IOException;
 public class Interaction {
     private String Ticker;
     private String Interval;
-    private final int MonthIndex;
+    private int MonthIndex;
     private String Slice;
 
     Interaction(String Ticker, String Interval, int MonthIndex) throws IOException {
@@ -15,20 +15,20 @@ public class Interaction {
 
     public void run(){
         try{
-            ParseTicker();
-            ParseInterval();
-            ParseSlice();
+            parseTicker();
+            parseInterval();
+            parseSlice();
             Stock stock = new Stock(Ticker,Interval,Slice);
             print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.AvgDayPrice());
         } catch(Exception e){System.err.println(e);}
     }
 
-    private void ParseTicker(){
+    private void parseTicker(){
         Ticker = Ticker.replaceAll("\\s","");
         Ticker = Ticker.toUpperCase();
     }
 
-    private void ParseInterval() {
+    private void parseInterval() {
         int[] intOptions = new int[]{1, 5, 15, 30, 60};
         String[] stringOptions = new String[]{"daily", "weekly", "monthly"};
         try {
@@ -45,7 +45,7 @@ public class Interaction {
         throw new Error("Interval Parsing Error");
     }
 
-    private void ParseSlice(){
+    private void parseSlice(){
         String year = "year";
         if(MonthIndex < 12) year+="1";
         else if(MonthIndex < 24) year += "2";

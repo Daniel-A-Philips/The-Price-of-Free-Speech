@@ -10,14 +10,14 @@ def main():
     global tweets
     global accounts
     global API_KEY
-    global API_SECRET
+    global API_KEY_SECRET
     global ACCESS_TOKEN
     global ACCESS_TOKEN_SECRET
     API_KEY = ""
-    API_SECRET = ""
+    API_KEY_SECRET = ""
     ACCESS_TOKEN = ""
     ACCESS_TOKEN_SECRET= ""
-    api = TwitterAPI(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET,api_version=2)
+    api = TwitterAPI(API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET,api_version=2)
 
 
 def getTwitterData(ID):
@@ -49,8 +49,6 @@ def getTwitterData(ID):
         print('Exception')
         print(e)
     
-    return tweets
-
 def getWantedAccounts():
     accounts = []
     reader = open("Twits.txt","r")
@@ -59,7 +57,7 @@ def getWantedAccounts():
 
 def writeData():
     originalData = []
-    with open('D:\Topics in Computer Science\Final\Data.csv',newline='') as csvfile:
+    with open('Data\\Data.csv',newline='') as csvfile:
         reader = csv.reader(csvfile,delimiter=",")
         for row in reader:
             originalData.append(row)
