@@ -5,11 +5,13 @@ public class Interaction {
     private String Interval;
     private int MonthIndex;
     private String Slice;
+    private String Handle;
 
-    Interaction(String Ticker, String Interval, int MonthIndex) throws IOException {
+    Interaction(String Ticker, String Interval, int MonthIndex, String Handle) throws IOException {
         this.Ticker = Ticker;
         this.Interval = Interval;
         this.MonthIndex = MonthIndex;
+        this.Handle = Handle;
     
     }
 

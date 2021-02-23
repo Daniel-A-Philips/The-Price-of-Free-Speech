@@ -35,8 +35,8 @@ public class Processing_Test_Gui extends PApplet {
 
 	@Override
 	public void draw(){
-		background(0);
-		//cp5.setFont(new ControlFont(createFont("Verdana",20)));
+		background(255);
+		cp5.setFont(new ControlFont(createFont("Verdana",20)));
 
 	}
   

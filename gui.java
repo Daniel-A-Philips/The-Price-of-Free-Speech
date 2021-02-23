@@ -23,7 +23,7 @@ class gui {
 
         //Creating the Frame
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setSize(800, 300);
+        frame.setSize(1000, 400);
         frame.setResizable(Resizable);
 
         //Creating the MenuBar and adding components
@@ -43,7 +43,7 @@ class gui {
             @Override
             public void actionPerformed(ActionEvent e){
                 try {
-                    Interaction interaction = new Interaction(Text.get(0).getText(),Text.get(1).getText(),SliceButton.getSelectedIndex());
+                    Interaction interaction = new Interaction(Text.get(0).getText(),Text.get(1).getText(),SliceButton.getSelectedIndex(),Text.get(2).getText());
                     interaction.run();
                     ta.append("\n"+toPrint);
                 } catch (IOException ex) {
@@ -73,13 +73,15 @@ class gui {
     private static void createLabels(){
         JLabel TickerLabel = new JLabel("Ticker");
         JLabel IntervalLabel = new JLabel("\tInterval (Minutes)");
-        Labels = new ArrayList<>(Arrays.asList(TickerLabel,IntervalLabel));
+        JLabel HandleLabel = new JLabel("\tTwitter Handle");
+        Labels = new ArrayList<>(Arrays.asList(TickerLabel,IntervalLabel,HandleLabel));
     }
 
     private static void createText() {
         JTextField TickerText = new JTextField(6); // accepts up to 6 characters
         JTextField IntervalText = new JTextField(6);
-        Text = new ArrayList<>(Arrays.asList(TickerText, IntervalText));
+        JTextField HandleText = new JTextField(15);
+        Text = new ArrayList<>(Arrays.asList(TickerText, IntervalText,HandleText));
     }
 
     /**
