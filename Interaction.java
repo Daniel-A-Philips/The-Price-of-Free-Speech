@@ -19,7 +19,7 @@ public class Interaction {
             parseInterval();
             parseSlice();
             Stock stock = new Stock(Ticker,Interval,Slice);
-            print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.AvgDayPrice());
+            print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.avgDayPrice());
         } catch(Exception e){System.err.println(e);}
     }
 

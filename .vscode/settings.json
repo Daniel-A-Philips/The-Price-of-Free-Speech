@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "core.jar"
+        "Jars/core.jar",
+        "Jars/controlP5.jar"
     ]
 }
