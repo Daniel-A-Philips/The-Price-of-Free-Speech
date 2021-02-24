@@ -199,7 +199,7 @@ public class Stock {
         double top = 0.0;
         for(int i = 0; i < 7; i++){
             for(ArrayList<String[]> as : WeekData){
-                top += Math.pow( avgDayPrice(as)-avgSevenDayPrice()),2);
+                top += Math.pow( avgDayPrice(as)-avgSevenDayPrice(),2);
             }
         }
         double Bottom = 0.0;
