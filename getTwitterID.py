@@ -57,7 +57,7 @@ def writeData():
             writable = row
         else:
             print(index-1)
-            writable = [row[0],id[index-1]]
+            writable = [row[0], ID[index - 1]]
         writer.writerow(writable)
         index += 1
 
@@ -78,7 +78,7 @@ def parseData():
         print("Warning, there are not usable twitter handles")
     else:
         for f in toWorkWith:
-            id.append(f['id'])
+            ID.append(f['id'])
 
 def main():
     global handles
@@ -87,14 +87,14 @@ def main():
     global output
     global errors
     global invalid
-    global id
+    global ID
     handles = []
     allData = []
     fileName = 'Data//Handles.csv'
     index = 0
     errors = 0
     invalid = []
-    id = []
+    ID = []
     with open(fileName) as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
