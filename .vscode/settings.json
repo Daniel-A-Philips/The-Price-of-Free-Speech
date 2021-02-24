@@ -3,5 +3,8 @@
         "lib/**/*.jar",
         "Jars/core.jar",
         "Jars/controlP5.jar"
-    ]
+    ],
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.pythonPath": "C:\\Users\\daplo\\anaconda3\\python.exe"
 }

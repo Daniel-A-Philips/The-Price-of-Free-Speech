@@ -1,4 +1,4 @@
-from TwitterAPI import TwitterAPI, TwitterOAuth, TwitterRequestError, TwitterConnectionError
+from TwitterAPI import TwitterAPI, TwitterRequestError, TwitterConnectionError
 import csv
 #
 # #https://geduldig.github.io/tutorials/twitter-counter/
@@ -13,8 +13,9 @@ def main():
     global API_KEY_SECRET
     global ACCESS_TOKEN
     global ACCESS_TOKEN_SECRET
-    API_KEY = ""
-    API_KEY_SECRET = ""
+    global AccountIDs
+    API_KEY = "buLT0zag38jzbX4lNECBBkexx"
+    API_KEY_SECRET = "bILyEVPlJd1GG8Nl6NRaXJ5dZCR62m1iY5NRMWEEn1UCOf2g57"
     ACCESS_TOKEN = ""
     ACCESS_TOKEN_SECRET= ""
     api = TwitterAPI(API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET,api_version=2)
@@ -22,6 +23,7 @@ def main():
 
 def getTwitterData(ID):
     tweets = []
+    AccountIDs = []
     try:
         # Get tweets - default setting
         tweets = api.request(f'users/:{ID}/tweets')
@@ -34,6 +36,7 @@ def getTwitterData(ID):
         tweets = api.request(f'users/:{ID}/tweets', params)
         for t in tweets:
             print(t)
+            AccountIDs.append(t)
     
     except TwitterRequestError as e:
         print('Request error')
