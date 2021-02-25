@@ -6,7 +6,7 @@ import json
 # export 'BEARER_TOKEN'='<your_bearer_token>'
 
 def auth():
-    bearer_token = "AAAAAAAAAAAAAAAAAAAAAP5KNAEAAAAAycIuL%2BYXlU9sdi7Z267bDQp%2FfE0%3DAkIyNchX9UmeGO10oUkryZa75J7FP4o5jEyM3m4uMbvwe69sXw"
+    bearer_token = ""
     return bearer_token
 
 
