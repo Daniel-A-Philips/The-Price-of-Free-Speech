@@ -6,7 +6,7 @@ import json
 # export 'BEARER_TOKEN'='<your_bearer_token>'
 
 def auth():
-    bearer_token = ""
+    bearer_token = "AAAAAAAAAAAAAAAAAAAAAP5KNAEAAAAAycIuL%2BYXlU9sdi7Z267bDQp%2FfE0%3DAkIyNchX9UmeGO10oUkryZa75J7FP4o5jEyM3m4uMbvwe69sXw"
     return bearer_token
 
 
@@ -45,26 +45,28 @@ def getData():
     usernames= usernames[:-1]
 
 def writeData():
-    print(handles)
-    csvfile = open(fileName,'w',newline='')
+    csvfile = open(writeFile,'w',newline='')
     writer = csv.writer(csvfile)
     index = 0
     writable = ""
     for row in allData:
+        # Skips over the current user if they are in the 'invalid' section
         if row[0] in invalid:
             continue
+        # Checks if the headers need to be written
         if index == 0:
             writable = row
+        # Formats the line in order to take both the handle and the id
         else:
-            print(index-1)
             writable = [row[0], ID[index - 1]]
         writer.writerow(writable)
         index += 1
 
 def parseData():
+    # Checks if there are any invalid handles
     try:
         temp = output['errors']
-    except:
+    except: # Runs if there are no errors
         print("All twitter handles are valid")
     else:
         errors = len(output['errors'])
@@ -83,19 +85,21 @@ def parseData():
 def main():
     global handles
     global allData
-    global fileName
+    global readFile
+    global writeFile
     global output
     global errors
     global invalid
     global ID
     handles = []
     allData = []
-    fileName = 'Data//Handles.csv'
+    readFile = 'Data//Handles.csv'
+    writeFile = 'Data//Handles_ID.csv'
     index = 0
     errors = 0
     invalid = []
     ID = []
-    with open(fileName) as csvfile:
+    with open(readFile) as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             allData.append(row)
@@ -106,9 +110,7 @@ def main():
     bearer_token = auth()
     url = create_url()
     headers = create_headers(bearer_token)
-    json_response = connect_to_endpoint(url, headers)
-    output = json_response
-    #output = (json.dumps(json_response, indent=4, sort_keys=True))
+    output = connect_to_endpoint(url, headers)
     parseData()
     writeData()
 
