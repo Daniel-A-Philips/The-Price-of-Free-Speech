@@ -5,11 +5,14 @@ import java.util.Scanner;
 
 public class RunPython {
 
+    public static String[] toRun = new String[]{"getTwitterID","tweetCounter","Correlation"};
+
     public static void main(String[] args) {
         System.out.println("This method has no contents");
     }
 
-    public static String Run(String fileName) {
+    public static String Run(int index) {
+        String fileName = toRun[index];
         InputStream output = null;
         String text = null;
         try {
