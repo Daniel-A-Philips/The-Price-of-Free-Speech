@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.WindowConstants;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 class gui {
     private static ArrayList<JLabel> Labels = new ArrayList<>();
@@ -44,6 +46,7 @@ class gui {
             public void actionPerformed(ActionEvent e){
                 try {
                     Interaction interaction = new Interaction(Text.get(0).getText(),Text.get(1).getText(),SliceButton.getSelectedIndex(),Text.get(2).getText());
+                    writeDate();
                     interaction.run();
                     ta.append("\n"+toPrint);
                 } catch (IOException ex) {
@@ -68,6 +71,18 @@ class gui {
         frame.getContentPane().add(BorderLayout.NORTH, mb);
         frame.getContentPane().add(BorderLayout.CENTER, ta);
         frame.setVisible(true);
+    }
+
+    private static void writeDate(){
+        String input = SliceButton.getSelectedItem().toString();
+        try{
+            FileWriter fileWriter = new FileWriter("Data\\Time.txt", false); 
+            PrintWriter printWriter = new PrintWriter(fileWriter, false);
+            printWriter.flush();
+            fileWriter.write(input);
+            fileWriter.close();
+            printWriter.close();
+        }catch(Exception e){System.err.println(e);}
     }
 
     private static void createLabels(){
