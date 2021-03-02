@@ -1,7 +1,9 @@
+from io import DEFAULT_BUFFER_SIZE
 import requests
 import csv
 import json
 import datetime
+from calendar import monthrange
 
 # To set your enviornment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
@@ -9,6 +11,26 @@ import datetime
 def auth():
     bearer_token = "AAAAAAAAAAAAAAAAAAAAAP5KNAEAAAAAycIuL%2BYXlU9sdi7Z267bDQp%2FfE0%3DAkIyNchX9UmeGO10oUkryZa75J7FP4o5jEyM3m4uMbvwe69sXw"
     return bearer_token
+
+def createDate():
+    global Dates
+    asString = ""
+    file = open("Data//Time.txt","r")
+    asString = file.read()
+    file.close()
+    months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    monthInt = int(months.index(asString[0:asString.index(" ")])+1)
+    yearInt = int(asString[asString.index(" ")+1:len(asString)])
+    monthRange = monthrange(yearInt,monthInt)
+    monthString = str(monthInt)
+    dayString = str(monthRange[1])
+    if monthInt < 10:
+        monthString = "0"+monthString
+    if monthRange[1] < 10:
+        dayString = 0 + str(monthRange[1])
+    start = str(yearInt)+"-"+monthString+"-01T00:00:00Z"
+    end = str(yearInt)+"-"+monthString+"-"+dayString+"T23:59:59Z"
+    Dates = [start,end]
 
 
 def create_url(id):
@@ -23,9 +45,7 @@ def get_params():
     # in_reply_to_user_id, lang, non_public_metrics, organic_metrics,
     # possibly_sensitive, promoted_metrics, public_metrics, referenced_tweets,
     # source, text, and withheld
-    d = str(datetime.datetime.utcnow().isoformat("T")) # <-- get time in UTC
-    end = d[0:d.index(".")] + "Z"
-    return {"tweet.fields": "created_at","end_time":end,"start_time":"2021-02-22T23:59:59Z","max_results":"100"}
+    return {"tweet.fields": "created_at","end_time":Dates[1],"start_time":Dates[0],"max_results":"100"}
 
 
 def create_headers(bearer_token):
@@ -77,7 +97,6 @@ def writeTotal():
         totalTweets += int(line)
         write_file.write(ID[index][0]+":"+ line)
         index += 1
-    print(totalTweets,"Tweets")
 
 def main():
     global fileName
@@ -88,6 +107,7 @@ def main():
     fileName = "Data//Handles_ID.csv"
     ID = []
     Data = []
+    createDate()
     getID()
     bearer_token = auth()
     for id in ID:
