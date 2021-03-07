@@ -1,0 +1,40 @@
+{
+    "Data": [
+        {
+            "type": "Button",
+            "label": "Run",
+            "coordinates": "20x20",
+            "standard_Image": "Run1.png",
+            "clicked_Image": "Run2.png"
+        },
+
+        {
+            "type": "Button",
+            "label": "Clear",
+            "coordinates": "20x100",
+            "standard_Image": "Clear1.png",
+            "clicked_Image": "Clear2.png"
+        },
+
+        {
+            "type": "Textbox",
+            "label": "test",
+            "coordinates": "400x300",
+            "standard_Image": "Empty1.png",
+            "clicked_Image": "Empty2.png"
+        },
+        {
+            "type": "Dropdown",
+            "label": "Interval",
+            "coordinates": "500x500",
+            "labels": "Clear~Run"
+        },
+
+        {
+            "type": "Text",
+            "label": "fg",
+            "coordinates": "200x200"
+        }
+
+    ]
+}

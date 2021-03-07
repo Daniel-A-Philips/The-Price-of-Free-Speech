@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "d:\\Topics in Computer Science\\Test Final\\Jars\\controlP5.jar",
+        "d:\\Topics in Computer Science\\Test Final\\Jars\\core.jar",
+        "d:\\Topics in Computer Science\\Test Final\\Jars\\gson-2.8.6.jar"
+    ]
+}
