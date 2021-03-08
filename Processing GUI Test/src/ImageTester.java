@@ -1,11 +1,8 @@
-import GUI.ImageButton;
-import GUI.ImageDropdown;
-import GUI.ImageTextBox;
-import GUI.imageReader;
-import GUI.Text;
+import GUI.*;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -31,41 +28,48 @@ public class ImageTester extends PApplet {
 
     @Override
     public void setup(){
+        surface.setResizable(false);
         font = createFont("lib\\OpenSans-Bold.ttf",26);
         textFont(font);
         fill(0);
         createObjects();
-	}
+    }
 
     private void createObjects(){
         String label;
         int[] coordinates = new int[2];
-        int[] Size = new int[2];
+        int[] Size;
         PImage standardImage;
         PImage clickedImage;
         imageReader.Run();
-        for( Hashtable dict : GUI.imageReader.finalData){
+        for( Hashtable dict : imageReader.finalData){
             String type = (String) dict.get("type");
             label = (String)dict.get("label");
             try{
                 coordinates =  toIntArray((String)dict.get("coordinates"));
-            } catch(Exception e){ System.out.println("No position data was given for \"" + label + "\""); }
+            } catch(Exception e){ System.out.println("No size data was given for \"" + label + "\""); }
             switch(type){
                 case "Button":
                     standardImage = loadImage("Images//"+type+"//"+dict.get("standard_Image"));
                     clickedImage = loadImage("Images//"+type+"//"+dict.get("clicked_Image"));
-                    buttons.add(new GUI.ImageButton(label,coordinates,Size,standardImage,clickedImage));
+                    Size = new int[]{standardImage.pixelWidth,standardImage.pixelHeight};
+                    buttons.add(new ImageButton(label,coordinates,Size,standardImage,clickedImage));
                     break;
 
                 case "Textbox":
                     standardImage = loadImage("Images//"+type+"//"+dict.get("standard_Image"));
                     clickedImage = loadImage("Images//"+type+"//"+dict.get("clicked_Image"));
-                    textBoxes.add(new GUI.ImageTextBox(label,coordinates,Size,font.getSize(),standardImage,clickedImage));
+                    Size = new int[]{standardImage.pixelWidth,standardImage.pixelHeight};
+                    textBoxes.add(new ImageTextBox(label,coordinates,Size,font.getSize(),standardImage,clickedImage));
                     break;
 
                 case "Dropdown":
                     String[] labels = ((String)dict.get("labels")).split("~");
-                    dropdowns.add(new GUI.ImageDropdown(label, coordinates, Size, labels, labels[0]));
+                    String path = "Images//"+type+"//"+label+"//"+labels[0]+"1.png";
+                    System.out.println(path);
+                    PImage temp = loadImage(path);
+                    Size =  new int[]{temp.pixelWidth,temp.pixelHeight};
+                    dropdowns.add(new ImageDropdown(label, coordinates, Size, labels, labels[0]));
                     break;
 
                 case "Text":
@@ -77,6 +81,7 @@ public class ImageTester extends PApplet {
                     System.exit(0);
             }
         }
+        Allign(texts.get(0));
     }
 
 
@@ -87,8 +92,8 @@ public class ImageTester extends PApplet {
 
     @Override
     public void settings() {
-		size(900,900);
-	}
+        size(800,600);
+    }
 
 
     @Override
@@ -193,6 +198,30 @@ public class ImageTester extends PApplet {
         for(ImageButton test : buttons){
             test.setImageStandard();
         }
+    }
+
+    private void Allign(Object a){
+        ImageDropdown drpdwn = new ImageDropdown();
+        Const drpdwnClass = new Const(drpdwn.getClass().getName());
+        ImageButton btn = new ImageButton();
+        Const btnClass = new Const(btn.getClass().getName());
+        ImageTextBox txtbx = new ImageTextBox();
+        Const txtbxClass = new Const(txtbx.getClass().getName());
+        Const objectClass = new Const(a.getClass().getName());
+        int[] topLeft = new int[2];
+        if(objectClass.getString().equals(drpdwnClass.getString())){
+            drpdwn = (ImageDropdown)a;
+            topLeft = drpdwn.allTopLefts.get(0);
+        }else if(objectClass.getString().equals(btnClass.getString())){
+            btn = (ImageButton)a;
+            topLeft = btn.getCoordinates();
+        }else if(objectClass.getString().equals(txtbxClass.getString())){
+            txtbx = (ImageTextBox)a;
+            topLeft = txtbx.getCoordinates();
+        }
+
+
+
     }
 
 

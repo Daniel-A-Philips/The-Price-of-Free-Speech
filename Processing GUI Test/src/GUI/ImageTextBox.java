@@ -19,6 +19,10 @@ public class ImageTextBox extends PApplet{
     protected int fontSize;
     protected boolean isOrignalLabel;
 
+    public ImageTextBox(){
+        int a = 0;
+    }
+
     public ImageTextBox(String label, int[] topLeft, int[] Size, int fontSize, PImage standardImage, PImage clickedImage){
         this.label = label;
         this.topLeft = topLeft;

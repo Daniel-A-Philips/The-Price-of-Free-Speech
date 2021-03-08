@@ -18,7 +18,12 @@ public class ImageDropdown extends PApplet {
     protected ImageButton previouslySelected;
     protected ImageButton currentSelected;
     protected int ymargin = 15;
-    protected ArrayList<int[]> allTopLefts = new ArrayList<int[]>();
+    public ArrayList<int[]> allTopLefts = new ArrayList<int[]>();
+
+    public ImageDropdown(){
+        int a = 0;
+        ButtonsUnchanged = new ArrayList<>();
+    }
 
     public ImageDropdown(String label ,int[] topLeft, int[] Size, String[] Labels, String defaultLabel){
         this.label = label;
@@ -45,7 +50,6 @@ public class ImageDropdown extends PApplet {
     }
 
     public void updatePositions(ImageButton clicked){
-        int IndexOfClicked = Buttons.indexOf(clicked);
         int IndexOfClickedUnchanged = ButtonsUnchanged.indexOf(clicked);
         ArrayList<ImageButton> temp = new ArrayList<>();
         temp.add(ButtonsUnchanged.get(IndexOfClickedUnchanged));

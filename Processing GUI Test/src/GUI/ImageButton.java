@@ -16,6 +16,10 @@ public class ImageButton{
     protected String currentSelectedPath;
     protected int VERSION;
 
+
+    public ImageButton(){
+        int a = 0;
+    }
     public ImageButton(String label ,int[] topLeft, int[] Size, PImage standardImage, PImage clickedImage){
         this.label = label;
         this.topLeft = topLeft;

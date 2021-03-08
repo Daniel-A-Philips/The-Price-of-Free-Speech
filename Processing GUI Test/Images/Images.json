@@ -3,7 +3,7 @@
         {
             "type": "Button",
             "label": "Run",
-            "coordinates": "20x20",
+            "coordinates": "40x525",
             "standard_Image": "Run1.png",
             "clicked_Image": "Run2.png"
         },
@@ -11,7 +11,7 @@
         {
             "type": "Button",
             "label": "Clear",
-            "coordinates": "20x100",
+            "coordinates": "300x525",
             "standard_Image": "Clear1.png",
             "clicked_Image": "Clear2.png"
         },
@@ -26,7 +26,7 @@
         {
             "type": "Dropdown",
             "label": "Interval",
-            "coordinates": "500x500",
+            "coordinates": "560x590",
             "labels": "Clear~Run"
         },
 
