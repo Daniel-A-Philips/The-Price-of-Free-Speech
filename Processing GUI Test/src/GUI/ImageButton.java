@@ -12,7 +12,7 @@ public class ImageButton{
     protected String standardImagePath;
     protected PImage clickedImage;
     protected String clickedImagePath;
-    protected PImage currentSelected;
+    public PImage currentSelected;
     protected String currentSelectedPath;
     protected int VERSION;
 

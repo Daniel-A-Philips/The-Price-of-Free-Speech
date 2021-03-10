@@ -12,8 +12,9 @@ import java.io.PrintWriter;
 
 class gui {
     private static ArrayList<JLabel> Labels = new ArrayList<>();
-    private static ArrayList<JTextField> Text = new ArrayList<>();
+    private static ArrayList<Object> Text = new ArrayList<>();
     private static JComboBox<String> SliceButton;
+    private static JComboBox<String> IntervalDropdown;
     private static JTextArea ta = new JTextArea();
     private static JPanel panel = new JPanel();
     private static JMenuBar mb = new JMenuBar();
@@ -45,7 +46,7 @@ class gui {
             @Override
             public void actionPerformed(ActionEvent e){
                 try {
-                    Interaction interaction = new Interaction(Text.get(0).getText(),Text.get(1).getText(),SliceButton.getSelectedIndex(),Text.get(2).getText());
+                    Interaction interaction = new Interaction(((JTextField)Text.get(0)).getText(),IntervalDropdown.getSelectedIndex(),SliceButton.getSelectedIndex(),((JTextField)Text.get(2)).getText());
                     writeDate();
                     interaction.run();
                     ta.append("\n"+toPrint);
@@ -56,12 +57,16 @@ class gui {
         });
         for(int i = 0; i < Labels.size(); i++){
             panel.add(Labels.get(i));
-            panel.add(Text.get(i));
+            if(i == 1){
+                panel.add(IntervalDropdown);
+            }
+            else if(i == 3){
+                System.out.println("Slice");
+                panel.add(SliceButton);
+            }
+            else panel.add((JTextField)(Text.get(i)));
         }
         // Dropdown Menu selection
-        panel.add(new JLabel("\tMonth"));
-        panel.add(SliceButton);
-        //
         panel.add(select);
         ta = new JTextArea(toPrint);
 
@@ -89,14 +94,15 @@ class gui {
         JLabel TickerLabel = new JLabel("Ticker");
         JLabel IntervalLabel = new JLabel("\tInterval (Minutes)");
         JLabel HandleLabel = new JLabel("\tTwitter Handle");
-        Labels = new ArrayList<>(Arrays.asList(TickerLabel,IntervalLabel,HandleLabel));
+        JLabel SliceLabel = new JLabel("\tMonth");
+        Labels = new ArrayList<>(Arrays.asList(TickerLabel,IntervalLabel,HandleLabel,SliceLabel));
     }
 
     private static void createText() {
         JTextField TickerText = new JTextField(6); // accepts up to 6 characters
-        JTextField IntervalText = new JTextField(6);
         JTextField HandleText = new JTextField(15);
-        Text = new ArrayList<>(Arrays.asList(TickerText, IntervalText,HandleText));
+        Object[] temp = new Object[]{TickerText,IntervalDropdown,HandleText,SliceButton};
+        Text = new ArrayList<>(Arrays.asList(temp));
     }
 
     /**
@@ -130,6 +136,8 @@ class gui {
             index--;
         }
         SliceButton = new JComboBox(Months.toArray());
+        String[] Intervals = new String[]{"1","5","15","30","60"};
+        IntervalDropdown = new JComboBox(Intervals);
     }
 
     public static void WriteText(String Text){

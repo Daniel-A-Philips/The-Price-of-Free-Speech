@@ -13,7 +13,7 @@ public class Stock {
     protected ArrayList<String[]> RawData = new ArrayList<>();
     protected ArrayList<String[]> DayData = new ArrayList<>();
     protected ArrayList<ArrayList<String[]>> WeekData = new ArrayList<>(); //Day,Data Select
-    protected String IntervalTime;
+    protected String Interval;
     protected String Ticker;
     protected String Slice;
     protected String Time_Series = "INTRADAY_EXTENDED";
@@ -21,11 +21,11 @@ public class Stock {
     protected double LatestOpeningPrice;
     protected double SevenDayOpeningPrice;
 
-    public Stock(String Ticker, String IntervalTime, String Slice) throws IOException {
-        this.IntervalTime = IntervalTime;
+    public Stock(String Ticker, String Interval, String Slice) throws IOException {
+        this.Interval = Interval;
         this.Ticker = Ticker;
         this.Slice = Slice;
-        if (IntervalTime.equals("")) this.IntervalTime = "5";
+        if (Interval.equals("")) this.Interval = "5";
         if (Ticker.equals("")) this.Ticker = "IBM";
         if (Slice.equals("")) this.Slice = "year1month1";
         run();
@@ -35,7 +35,7 @@ public class Stock {
      * Used to test the Stock class
      */
     public Stock() {
-        IntervalTime = "5";
+        Interval = "5";
         Ticker = "IBM";
         Slice = "year1month1";
         try {
@@ -46,10 +46,12 @@ public class Stock {
     }
 
     public void run() throws IOException {
-        getHistory("TIME_SERIES_"+Time_Series,Ticker,IntervalTime+"min",Slice);
+        getHistory();
     }
 
-    private void getHistory(String Time_Series, String Ticker, String Interval, String Slice) throws IOException {
+    private void getHistory() throws IOException {
+        Interval += "min";
+        Time_Series = "TIME_SERIES_" + Time_Series;
         URL url = new URL("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try

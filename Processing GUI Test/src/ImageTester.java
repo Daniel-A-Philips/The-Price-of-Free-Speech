@@ -2,7 +2,6 @@ import GUI.*;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -81,12 +80,11 @@ public class ImageTester extends PApplet {
                     System.exit(0);
             }
         }
-        Allign(texts.get(0));
     }
 
 
 
-    public int[] toIntArray(String sa) throws Exception{
+    public int[] toIntArray(String sa) {
         return Arrays.asList(sa.split("x")).stream().mapToInt(Integer::parseInt).toArray();
     }
 
@@ -198,30 +196,6 @@ public class ImageTester extends PApplet {
         for(ImageButton test : buttons){
             test.setImageStandard();
         }
-    }
-
-    private void Allign(Object a){
-        ImageDropdown drpdwn = new ImageDropdown();
-        Const drpdwnClass = new Const(drpdwn.getClass().getName());
-        ImageButton btn = new ImageButton();
-        Const btnClass = new Const(btn.getClass().getName());
-        ImageTextBox txtbx = new ImageTextBox();
-        Const txtbxClass = new Const(txtbx.getClass().getName());
-        Const objectClass = new Const(a.getClass().getName());
-        int[] topLeft = new int[2];
-        if(objectClass.getString().equals(drpdwnClass.getString())){
-            drpdwn = (ImageDropdown)a;
-            topLeft = drpdwn.allTopLefts.get(0);
-        }else if(objectClass.getString().equals(btnClass.getString())){
-            btn = (ImageButton)a;
-            topLeft = btn.getCoordinates();
-        }else if(objectClass.getString().equals(txtbxClass.getString())){
-            txtbx = (ImageTextBox)a;
-            topLeft = txtbx.getCoordinates();
-        }
-
-
-
     }
 
 

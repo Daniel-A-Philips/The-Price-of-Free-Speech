@@ -36,6 +36,8 @@ public class ImageDropdown extends PApplet {
     }
 
     private void createButtons(){
+        topLeft = new int[]{topLeft[0],topLeft[1]+Size[1]+ymargin};
+        System.out.println(topLeft[1]);
         for(String lbl : Labels){
             allTopLefts.add(topLeft);
             topLeft = new int[]{topLeft[0],topLeft[1]-ymargin-Size[1]};
@@ -68,7 +70,7 @@ public class ImageDropdown extends PApplet {
         }
         Buttons = temp;
         currentSelected = Buttons.get(0);
-        toShow = new ArrayList<ImageButton>();
+        toShow = new ArrayList<>();
         toShow.add(Buttons.get(0));
 
     }
