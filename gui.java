@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 class gui {
     private static ArrayList<JLabel> Labels = new ArrayList<>();
     private static ArrayList<Object> Text = new ArrayList<>();
-    private static JComboBox<String> SliceButton;
+    private static JComboBox<String> SliceDropdown;
     private static JComboBox<String> IntervalDropdown;
     private static JTextArea ta = new JTextArea();
     private static JPanel panel = new JPanel();
@@ -30,14 +30,14 @@ class gui {
         frame.setResizable(Resizable);
 
         //Creating the MenuBar and adding components
-        JMenu m1 = new JMenu("FILE");
-        JMenu m2 = new JMenu("Help");
-        mb.add(m1);
-        mb.add(m2);
-        JMenuItem m11 = new JMenuItem("Open");
-        JMenuItem m22 = new JMenuItem("Save as");
-        m1.add(m11);
-        m1.add(m22);
+        JMenu file = new JMenu("FILE");
+        JMenu help = new JMenu("Help");
+        mb.add(file);
+        mb.add(help);
+        JMenuItem open = new JMenuItem("Open");
+        JMenuItem save_as = new JMenuItem("Save as");
+        file.add(open);
+        file.add(save_as);
         JButton select = new JButton("Begin");
         createLabels();
         createText();
@@ -46,7 +46,11 @@ class gui {
             @Override
             public void actionPerformed(ActionEvent e){
                 try {
-                    Interaction interaction = new Interaction(((JTextField)Text.get(0)).getText(),IntervalDropdown.getSelectedIndex(),SliceButton.getSelectedIndex(),((JTextField)Text.get(2)).getText());
+                    String ticker = ((JTextField)Text.get(0)).getText();
+                    int IntervalInt = IntervalDropdown.getSelectedIndex();
+                    int SliceInt = SliceDropdown.getSelectedIndex();
+                    String handles = ((JTextField)Text.get(2)).getText();
+                    Interaction interaction = new Interaction(ticker,IntervalInt,SliceInt,handles);
                     writeDate();
                     interaction.run();
                     ta.append("\n"+toPrint);
@@ -62,7 +66,7 @@ class gui {
             }
             else if(i == 3){
                 System.out.println("Slice");
-                panel.add(SliceButton);
+                panel.add(SliceDropdown);
             }
             else panel.add((JTextField)(Text.get(i)));
         }
@@ -79,7 +83,7 @@ class gui {
     }
 
     private static void writeDate(){
-        String input = SliceButton.getSelectedItem().toString();
+        String input = SliceDropdown.getSelectedItem().toString();
         try{
             FileWriter fileWriter = new FileWriter("Data\\Time.txt", false); 
             PrintWriter printWriter = new PrintWriter(fileWriter, false);
@@ -101,7 +105,7 @@ class gui {
     private static void createText() {
         JTextField TickerText = new JTextField(6); // accepts up to 6 characters
         JTextField HandleText = new JTextField(15);
-        Object[] temp = new Object[]{TickerText,IntervalDropdown,HandleText,SliceButton};
+        Object[] temp = new Object[]{TickerText,IntervalDropdown,HandleText,SliceDropdown};
         Text = new ArrayList<>(Arrays.asList(temp));
     }
 
@@ -135,7 +139,7 @@ class gui {
             monthsLeft--;
             index--;
         }
-        SliceButton = new JComboBox(Months.toArray());
+        SliceDropdown = new JComboBox(Months.toArray());
         String[] Intervals = new String[]{"1","5","15","30","60"};
         IntervalDropdown = new JComboBox(Intervals);
     }
