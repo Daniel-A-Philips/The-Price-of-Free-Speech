@@ -1,14 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import javax.swing.WindowConstants;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.util.*;
+import java.io.*;
+import java.time.*;
+import java.awt.event.*;
 
 class gui {
     private static ArrayList<JLabel> Labels = new ArrayList<>();
@@ -50,9 +45,11 @@ class gui {
                     int IntervalInt = IntervalDropdown.getSelectedIndex();
                     int SliceInt = SliceDropdown.getSelectedIndex();
                     String handles = ((JTextField)Text.get(2)).getText();
-                    Interaction interaction = new Interaction(ticker,IntervalInt,SliceInt,handles);
+                    Interaction interaction = new Interaction(ticker,IntervalInt,SliceInt,handles,false);
+                    Interaction DIA = new Interaction("DIA",IntervalInt,SliceInt,handles,true);
                     writeDate();
                     interaction.run();
+                    DIA.run();
                     ta.append("\n"+toPrint);
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -146,6 +143,27 @@ class gui {
 
     public static void WriteText(String Text){
         toPrint = Text;
+    }
+
+    private void writeSMVI(){
+        try{
+            RunPython.Run(0);
+            RunPython.Run(1);
+            File file = new File("Data\\SMVI_Data.txt");
+            FileWriter writer = new FileWriter(file);
+            String[] varNames = new String[]{"aa","ba","am","bm","T","t"};
+            double aa;
+            double ba;
+            double am;
+            double bm;
+            double t = 31; //TODO: Get the time from the range
+            double T = Double.parseDouble(RunPython.getOutput(1));
+            double[] var = new double[]{aa,ba,am,bm,t,T};
+            for(int i = 0; i < var.length; i++){
+                writer.write(varNames[i]+":"+var[i]);
+            }
+            writer.close();
+        }catch(Exception e){System.out.println(e);}
     }
 
 }

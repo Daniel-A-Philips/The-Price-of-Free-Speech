@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.*;
 
 public class Interaction {
     private String Ticker;
@@ -7,12 +8,15 @@ public class Interaction {
     private int MonthIndex;
     private String Slice;
     private String Handle;
+    private boolean forSMVI;
+    private Stock stock;
 
-    Interaction(String Ticker, int IntervalIndex, int MonthIndex, String Handle) throws IOException {
+    Interaction(String Ticker, int IntervalIndex, int MonthIndex, String Handle, boolean forSMVI) throws IOException {
         this.Ticker = Ticker;
         this.IntervalIndex = IntervalIndex;
         this.MonthIndex = MonthIndex;
         this.Handle = Handle;
+        this.forSMVI = forSMVI;
     
     }
 
@@ -21,10 +25,11 @@ public class Interaction {
             parseTicker();
             parseInterval();
             parseSlice();
+            writeHandles();
             System.out.println("created stock");
-            Stock stock = new Stock(Ticker,Interval,Slice);
+            stock = new Stock(Ticker,Interval,Slice, forSMVI);
             System.out.println("finalized stock");
-            print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.avgDayPrice());
+            if(!forSMVI) print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.avgDayPrice());
         } catch(Exception e){System.err.println(e + "\nThis error occured in the \"run\" method in \"Interaction\"");}
     }
 
@@ -55,5 +60,20 @@ public class Interaction {
         System.out.println("Started print");
         gui.WriteText(data);
         System.out.println("printed");
+    }
+
+    private void writeHandles(){
+        if(forSMVI) return;
+        try{
+            File file = new File("Data\\Handles.csv");
+            FileWriter writer = new FileWriter(file);
+            Handle = Handle.replaceAll("\\s+","");
+            String[] Handles = Handle.split(",");
+            writer.write("Handle,ID\n");
+            for(String s : Handles){
+                writer.write(s+"\n");
+            }
+            writer.close();
+        }catch(Exception e){System.out.println(e);}
     }
 }

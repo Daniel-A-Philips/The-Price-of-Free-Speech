@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -16,15 +17,17 @@ public class Stock {
     protected String Interval;
     protected String Ticker;
     protected String Slice;
+    protected boolean forSMVI;
     protected String Time_Series = "INTRADAY_EXTENDED";
     protected String APIKey = "4HRPSUDJ4S8WR99F";
     protected double LatestOpeningPrice;
     protected double SevenDayOpeningPrice;
 
-    public Stock(String Ticker, String Interval, String Slice) throws IOException {
+    public Stock(String Ticker, String Interval, String Slice, boolean forSMVI) throws IOException {
         this.Interval = Interval;
         this.Ticker = Ticker;
         this.Slice = Slice;
+        this.forSMVI = forSMVI;
         if (Interval.equals("")) this.Interval = "5";
         if (Ticker.equals("")) this.Ticker = "IBM";
         if (Slice.equals("")) this.Slice = "year1month1";
@@ -49,30 +52,33 @@ public class Stock {
         getHistory();
     }
 
-    private void getHistory() throws IOException {
+    private void getHistory(){
         Interval += "min";
         Time_Series = "TIME_SERIES_" + Time_Series;
-        URL url = new URL("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        try
-        {
+        try{
+            System.out.println("Test");
+            URL url = new URL("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
+            System.out.println("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = url.openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            File file = new File("Data\\Data.csv");
+            File file;
+            if(forSMVI) file = new File("Data//DIA_Data.csv");
+            else file = new File("Data//Data.csv");
             FileWriter writer = new FileWriter(file);
             String line;
             while((line = reader.readLine()) != null) {
                 writer.write(line+"\n");
             }
             writer.close();
-        }
+            urlConnection.disconnect();
+            RawData = parseData();
+            DayData = getDayData();
+            WeekData = GetWeekData();
+            LatestOpeningPrice = getLatestOpenPrice();
+            SevenDayOpeningPrice = getSevenDayOpeningPrice();
+        } 
         catch(IOException E){System.out.println(E);}
-        finally {urlConnection.disconnect();}
-        RawData = parseData();
-        DayData = getDayData();
-        WeekData = GetWeekData();
-        LatestOpeningPrice = getLatestOpenPrice();
-        SevenDayOpeningPrice = getSevenDayOpeningPrice();
     }
 
     private ArrayList<String[]> parseData() throws IOException {
@@ -182,6 +188,15 @@ public class Stock {
         return total / 7;
     }
 
+    public double avgPrice(ArrayList<ArrayList<String[]>> c){
+        double total = 0;
+        for (ArrayList<String[]> as : c) {
+            total += avgDayPrice(as);
+        }
+        return total / c.size();
+    }
+    }
+
     /**
      * A method to find the standard deviation of a given stock for the most recent day
      *
@@ -207,6 +222,21 @@ public class Stock {
         double Bottom = 0.0;
         for(int i = 0; i < 7; i++){
             Bottom += WeekData.get(i).size()-1;
+        }
+        Bottom--;
+        return Math.sqrt(top/Bottom);
+    }
+
+    public double deviation(ArrayList<ArrayList<String[]>> a){
+        double top = 0.0;
+        for(int i = 0; i < a.size(); i++){
+            for(ArrayList<String[]> as : a){
+                top += Math.pow( avgDayPrice(as)-avgPrice(a),2);
+            }
+        }
+        double Bottom = 0.0;
+        for(int i = 0; i < a.size(); i++){
+            Bottom += a.get(i).size()-1;
         }
         Bottom--;
         return Math.sqrt(top/Bottom);
