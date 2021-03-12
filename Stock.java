@@ -195,7 +195,6 @@ public class Stock {
         }
         return total / c.size();
     }
-    }
 
     /**
      * A method to find the standard deviation of a given stock for the most recent day
@@ -227,19 +226,23 @@ public class Stock {
         return Math.sqrt(top/Bottom);
     }
 
-    public double deviation(ArrayList<ArrayList<String[]>> a){
+    public double deviation(ArrayList<String[]> a){
         double top = 0.0;
-        for(int i = 0; i < a.size(); i++){
-            for(ArrayList<String[]> as : a){
-                top += Math.pow( avgDayPrice(as)-avgPrice(a),2);
-            }
+        double avg = avgDayPrice(a);
+        double tmavg = 0.0;
+        for(String[] sa : a){
+            tmavg += Double.parseDouble(sa[2])+Double.parseDouble(sa[3]);
         }
-        double Bottom = 0.0;
-        for(int i = 0; i < a.size(); i++){
-            Bottom += a.get(i).size()-1;
+        tmavg = tmavg / (2*a.size());
+        for(String[] sa: a){
+            top += (Double.parseDouble(sa[2])+Double.parseDouble(sa[3]))-tmavg;
         }
-        Bottom--;
-        return Math.sqrt(top/Bottom);
+        double bottom = a.size()-1;
+        return Math.sqrt(top/bottom);
+    }
+
+    public double getVariation(ArrayList<String[]> data){
+        return Math.pow(deviation(data),2);
     }
 
     public double currentDayDeviationPercentage() {

@@ -16,6 +16,8 @@ class gui {
     private static JFrame frame = new JFrame("The Price of Free Speech");
     private static String toPrint = "\n";
     private static boolean Resizable = true;
+    private static Interaction interaction;
+    private static Interaction DIA;
 
     public static void main(String[] args) {
 
@@ -45,12 +47,13 @@ class gui {
                     int IntervalInt = IntervalDropdown.getSelectedIndex();
                     int SliceInt = SliceDropdown.getSelectedIndex();
                     String handles = ((JTextField)Text.get(2)).getText();
-                    Interaction interaction = new Interaction(ticker,IntervalInt,SliceInt,handles,false);
-                    Interaction DIA = new Interaction("DIA",IntervalInt,SliceInt,handles,true);
+                    interaction = new Interaction(ticker,IntervalInt,SliceInt,handles,false);
+                    DIA = new Interaction("DIA",IntervalInt,SliceInt,handles,true);
                     writeDate();
                     interaction.run();
                     DIA.run();
                     ta.append("\n"+toPrint);
+                    writeSMVI();
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -145,20 +148,21 @@ class gui {
         toPrint = Text;
     }
 
-    private void writeSMVI(){
+    
+    private static void writeSMVI(){
         try{
             RunPython.Run(0);
             RunPython.Run(1);
             File file = new File("Data\\SMVI_Data.txt");
             FileWriter writer = new FileWriter(file);
-            String[] varNames = new String[]{"aa","ba","am","bm","T","t"};
-            double aa;
-            double ba;
-            double am;
-            double bm;
+            String[] varNames = new String[]{"va","na","vb","nb","T","t"};
+            double va = interaction.getVariation(interaction.getRawData());//;
+            double na= interaction.getNumberOfDataPoints();
+            double vb = DIA.getVariation(DIA.getRawData());
+            double nb = DIA.getNumberOfDataPoints();
             double t = 31; //TODO: Get the time from the range
             double T = Double.parseDouble(RunPython.getOutput(1));
-            double[] var = new double[]{aa,ba,am,bm,t,T};
+            double[] var = new double[]{va,na,vb,nb,t,T};
             for(int i = 0; i < var.length; i++){
                 writer.write(varNames[i]+":"+var[i]);
             }

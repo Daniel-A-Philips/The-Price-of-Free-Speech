@@ -22,7 +22,7 @@ def createDate():
     monthString = months.index(asString[0:asString.index(" ")])+1
     monthRange = monthrange(yearInt,int(monthString))
     dayString = str(monthRange[1])
-    if int(monthString) < 10: monthString = "0"+monthString
+    if int(monthString) < 10: monthString = "0" + str(monthString)
     if monthRange[1] < 10: dayString = "0" + str(monthRange[1])
     start = str(yearInt)+"-"+monthString+"-01T00:00:00Z"
     end = str(yearInt)+"-"+monthString+"-"+dayString+"T23:59:59Z"

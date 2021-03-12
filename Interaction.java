@@ -1,5 +1,5 @@
-import java.io.IOException;
 import java.io.*;
+import java.util.*;
 
 public class Interaction {
     private String Ticker;
@@ -75,5 +75,17 @@ public class Interaction {
             }
             writer.close();
         }catch(Exception e){System.out.println(e);}
+    }
+
+    public int getNumberOfDataPoints(){
+        return stock.RawData.size()-1;
+    }
+
+    public ArrayList<String[]> getRawData(){
+        return stock.RawData;
+    }
+
+    public double getVariation(ArrayList<String[]> a){
+        return stock.getVariation(a);
     }
 }

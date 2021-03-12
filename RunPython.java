@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RunPython {
 
-    private static String[] toRun = new String[]{"getTwitterID","tweetCounter","SMVI"};
+    private static String[] toRun = new String[]{"getTwitterID.py","tweetCounter.py","SMVI.py"};
     private static String[] Output = new String[toRun.length];
 
     public static void main(String[] args) {
