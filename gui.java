@@ -65,7 +65,7 @@ class gui {
                 panel.add(IntervalDropdown);
             }
             else if(i == 3){
-                System.out.println("Slice");
+                System.out.println("Creating Slice Dropdown");
                 panel.add(SliceDropdown);
             }
             else panel.add((JTextField)(Text.get(i)));
