@@ -58,7 +58,6 @@ public class Interaction {
     private void print(String data){
         System.out.println("Started print");
         gui.WriteText(data);
-        System.out.println("printed");
     }
 
     private void writeHandles(){
