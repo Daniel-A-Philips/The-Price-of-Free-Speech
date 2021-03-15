@@ -1,6 +1,5 @@
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -71,6 +70,7 @@ public class Stock {
                 writer.write(line+"\n");
             }
             writer.close();
+            reader.close();
             urlConnection.disconnect();
             RawData = parseData();
             DayData = getDayData();
@@ -78,7 +78,8 @@ public class Stock {
             LatestOpeningPrice = getLatestOpenPrice();
             SevenDayOpeningPrice = getSevenDayOpeningPrice();
         } 
-        catch(IOException E){System.out.println(E);}
+        catch(IOException E){
+            System.out.println("Error in \"getHistory\"\n"+E);}
     }
 
     private ArrayList<String[]> parseData() throws IOException {
@@ -88,6 +89,7 @@ public class Stock {
         while((line = reader.readLine()) != null){
             ParsedData.add(line.split(","));
         }
+        reader.close();
         return ParsedData;
     }
 
@@ -227,6 +229,11 @@ public class Stock {
     }
 
     public double deviation(ArrayList<String[]> a){
+        //Check if the arraylist has not been formatted correctly, meaning it still has headers
+        try{
+            double d = Double.parseDouble(a.get(0)[0]);
+        }catch(Exception e){ a.remove(0);}
+        ////////////////////////////////////////////////////////////////////////////////////////
         double top = 0.0;
         double avg = avgDayPrice(a);
         double tmavg = 0.0;

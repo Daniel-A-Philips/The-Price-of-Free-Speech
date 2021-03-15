@@ -156,7 +156,7 @@ class gui {
             File file = new File("Data\\SMVI_Data.txt");
             FileWriter writer = new FileWriter(file);
             String[] varNames = new String[]{"va","na","vb","nb","T","t"};
-            double va = interaction.getVariation(interaction.getRawData());//;
+            double va = interaction.getVariation(interaction.getRawData());
             double na= interaction.getNumberOfDataPoints();
             double vb = DIA.getVariation(DIA.getRawData());
             double nb = DIA.getNumberOfDataPoints();
@@ -167,7 +167,7 @@ class gui {
                 writer.write(varNames[i]+":"+var[i]);
             }
             writer.close();
-        }catch(Exception e){System.out.println(e);}
+        }catch(Exception e){System.out.println("Error in \"writeSMVI\"\n"+e);}
     }
 
 }

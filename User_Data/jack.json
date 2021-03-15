@@ -1,34 +1,154 @@
 {
     "data": [
         {
-            "created_at": "2021-03-02T00:38:12.000Z",
-            "id": "1366548357674463233",
-            "text": "RT @Criterion: In celebration of the 2nd anniversary of @solangeknowles\u2019s WHEN I GET HOME (2019), @criterionchannl is proud to present Know\u2026"
+            "created_at": "2021-02-25T23:36:34.000Z",
+            "id": "1365083296414113792",
+            "text": "Bitcoin, Blockchain and the Black Community - CoinDesk https://t.co/3KH6W7Rg0Q"
         },
         {
-            "created_at": "2021-03-01T23:51:25.000Z",
-            "id": "1366536583516618754",
-            "text": "RT @GodisRivera: Come join @mayagpatterson and @jessfaison as we talk @TwitterSpaces FAQ and other important things like what I\u2019m making fo\u2026"
+            "created_at": "2021-02-25T23:32:42.000Z",
+            "id": "1365082324900012036",
+            "text": "RT @bitcoinzay: Starting in less than an hour! \ud83d\udc47\ud83c\udffe\n\nTune into @CoinDesk TV and watch #CommunityCrypto at 5pm ET \n\nSee you then! \u270a\ud83c\udffe"
         },
         {
-            "created_at": "2021-03-01T23:35:39.000Z",
-            "id": "1366532619001679874",
-            "text": "RT @olugbo: \u201c58% of loans through Square Capital go to women-owned businesses, compared to 17% of traditional loans; and 35% of loans throu\u2026"
+            "created_at": "2021-02-25T04:22:10.000Z",
+            "id": "1364792783500832768",
+            "text": "RT @Sekani__Solomon: Crypto art changing lives"
         },
         {
-            "created_at": "2021-03-01T23:22:15.000Z",
-            "id": "1366529244092801028",
-            "text": "RT @Square: \u201cBringing banking capability in-house enables us to operate more nimbly, which will serve Square and our customers as we contin\u2026"
+            "created_at": "2021-02-25T03:59:05.000Z",
+            "id": "1364786972657524742",
+            "text": "RT @milessuter: https://t.co/2i46RZ6c0A"
         },
         {
-            "created_at": "2021-03-01T23:08:51.000Z",
-            "id": "1366525871054487553",
-            "text": "\ud83c\udfe6 now open https://t.co/8MoWvUDny0"
+            "created_at": "2021-02-24T04:47:59.000Z",
+            "id": "1364436892297564160",
+            "text": "@hfangca @OKCoin @opencryptoorg Thank you for joining!"
+        },
+        {
+            "created_at": "2021-02-23T17:13:31.000Z",
+            "id": "1364262123417726976",
+            "text": "@bitcoinbrink \ud83d\ude4f\ud83c\udffc"
+        },
+        {
+            "created_at": "2021-02-20T02:06:24.000Z",
+            "id": "1362946674553856004",
+            "text": "RT @jerrybrito: It\u2019s an honor to help in this important endeavor. All orgs developing in crypto \u2014 for-profit or nonprofit, even individuals\u2026"
+        },
+        {
+            "created_at": "2021-02-20T01:47:23.000Z",
+            "id": "1362941891226988546",
+            "text": "Over 6,600 people submitted their proof-of-work so far. Working to narrow over weekend and will start interviewing board candidates soon."
+        },
+        {
+            "created_at": "2021-02-19T20:34:35.000Z",
+            "id": "1362863173062197248",
+            "text": "This is excellent \ud83e\udde1 https://t.co/e7ywpoCcxS"
+        },
+        {
+            "created_at": "2021-02-17T03:47:40.000Z",
+            "id": "1361884996781309953",
+            "text": "learned the most from https://t.co/GrUoCXanNL and https://t.co/cz3yYo4UEw"
+        },
+        {
+            "created_at": "2021-02-13T22:41:09.000Z",
+            "id": "1360720695337000962",
+            "text": "Great conversation w \u2066@bigmarh\u2069  https://t.co/fJyPkexZOk"
+        },
+        {
+            "created_at": "2021-02-12T06:33:52.000Z",
+            "id": "1360114881978982403",
+            "text": "JAY-Z/@S_C_ and I are giving 500 BTC to a new endowment named \u20bftrust to fund #Bitcoin development, initially focused on teams in Africa &amp; India. It\u2018ll be set up as a blind irrevocable trust, taking zero direction from us. We need 3 board members to start: https://t.co/L4mRBryMJe"
+        },
+        {
+            "created_at": "2021-02-12T06:14:27.000Z",
+            "id": "1360109997242216450",
+            "text": "\ud83e\udde1 https://t.co/Q24tuuzOm3"
+        },
+        {
+            "created_at": "2021-02-10T16:53:52.000Z",
+            "id": "1359546136785129473",
+            "text": "RT @moneyball: Great overview of what the bitcoin design community has been up to, where it is headed, and how you can get involved!"
+        },
+        {
+            "created_at": "2021-02-10T16:44:40.000Z",
+            "id": "1359543820577169412",
+            "text": "@jerrybrito @pierre_rochard Thank you for your incredible work! \ud83e\udde1"
+        },
+        {
+            "created_at": "2021-02-06T21:46:27.000Z",
+            "id": "1358170216136511489",
+            "text": "@_jonasschnelli_ @gonzoucab # here's how I did it after git clone\ncd bitcoin/depends\nmake\ncd ..\n./autogen.sh\n./configure --prefix=$PWD/depends/arm-apple-darwin20.3.0\nmake"
+        },
+        {
+            "created_at": "2021-02-06T02:57:02.000Z",
+            "id": "1357885989801271296",
+            "text": "@GarrettMcManus @Square @CashApp \u2764\ufe0f\u2764\ufe0f\u2764\ufe0f"
+        },
+        {
+            "created_at": "2021-02-05T20:39:58.000Z",
+            "id": "1357791096986759170",
+            "text": "@michael_saylor @MicroStrategy @opencryptoorg Thank you"
+        },
+        {
+            "created_at": "2021-02-05T19:47:18.000Z",
+            "id": "1357777841098682373",
+            "text": "RT @bitcoinzay: The Black #Bitcoin Billionaires on Clubhouse are glad to partner with @cashapp \n\nThe Satoshi Millionaire Campaign \ud83d\ude80\n\nSign u\u2026"
+        },
+        {
+            "created_at": "2021-02-05T18:37:18.000Z",
+            "id": "1357760225965600769",
+            "text": "\ud83d\udcaf https://t.co/7PXswPy4bt"
+        },
+        {
+            "created_at": "2021-02-05T07:37:45.000Z",
+            "id": "1357594245800988672",
+            "text": "@getumbrel Starting from a scratch build on M1 first"
+        },
+        {
+            "created_at": "2021-02-05T07:15:55.000Z",
+            "id": "1357588751757627393",
+            "text": "Running #bitcoin https://t.co/W51ga3yrKb"
+        },
+        {
+            "created_at": "2021-02-04T01:24:07.000Z",
+            "id": "1357137828753231874",
+            "text": "RT @CryptoPlug3: Crypto Blockchain Plug has locked arms with the Black Bitcoin Billionaires to make sure that 100k families obtain 1 Millio\u2026"
+        },
+        {
+            "created_at": "2021-02-02T21:42:59.000Z",
+            "id": "1356719790635634688",
+            "text": "@StackingHats @JackMallers Yes I love what jack is doing"
+        },
+        {
+            "created_at": "2021-02-02T21:30:26.000Z",
+            "id": "1356716633994092548",
+            "text": "Smart https://t.co/wxsQkbfPef"
+        },
+        {
+            "created_at": "2021-02-02T16:42:54.000Z",
+            "id": "1356644274616422400",
+            "text": "RT @km: Hi! So, news. We are delighted to announce our new $100M venture fund, investing in innovative technology at the earliest stage."
+        },
+        {
+            "created_at": "2021-02-02T16:15:48.000Z",
+            "id": "1356637452790755328",
+            "text": "\ud83d\udc8e\ud83e\udd32 https://t.co/YlEXScy74y"
+        },
+        {
+            "created_at": "2021-02-01T22:13:04.000Z",
+            "id": "1356364974075990016",
+            "text": "RT @MuunWallet: We're excited to share Muun's new open-source model, which is much more aligned with the values of bitcoin's community and\u2026"
+        },
+        {
+            "created_at": "2021-02-01T22:11:59.000Z",
+            "id": "1356364699504242688",
+            "text": "@MuunWallet @_Bosch_ @moneyball @esneider Amazing \ud83d\ude4f\ud83c\udffc"
         }
     ],
     "meta": {
-        "newest_id": "1366548357674463233",
-        "oldest_id": "1366525871054487553",
-        "result_count": 5
+        "newest_id": "1365083296414113792",
+        "oldest_id": "1356364699504242688",
+        "result_count": 29
     }
 }

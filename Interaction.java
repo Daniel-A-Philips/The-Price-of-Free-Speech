@@ -82,6 +82,12 @@ public class Interaction {
     }
 
     public ArrayList<String[]> getRawData(){
+        for(String[] sa : stock.RawData){
+            for(String s : sa){
+                System.out.print(s+", ");
+            }
+            System.out.print("\n");
+        }
         return stock.RawData;
     }
 
