@@ -14,7 +14,7 @@ class gui {
     private static JPanel panel = new JPanel();
     private static JMenuBar mb = new JMenuBar();
     private static JFrame frame = new JFrame("The Price of Free Speech");
-    private static String toPrint = "\n";
+    private static String toPrint = "";
     private static boolean Resizable = true;
     private static Interaction interaction;
     private static Interaction DIA;
@@ -52,8 +52,8 @@ class gui {
                     writeDate();
                     interaction.run();
                     DIA.run();
-                    ta.append("\n"+toPrint);
                     writeSMVI();
+                    ta.append("\n"+toPrint);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -145,7 +145,7 @@ class gui {
     }
 
     public static void WriteText(String Text){
-        toPrint = Text;
+        toPrint += "\n"+Text;
     }
 
     
@@ -163,10 +163,13 @@ class gui {
             double t = 31; //TODO: Get the time from the range
             double T = Double.parseDouble(RunPython.getOutput(1));
             double[] var = new double[]{va,na,vb,nb,t,T};
+            System.out.println("Writing");
             for(int i = 0; i < var.length; i++){
-                writer.write(varNames[i]+":"+var[i]);
+                writer.write(varNames[i]+":"+var[i]+"\n");
             }
             writer.close();
+            RunPython.Run(2);
+            WriteText("SMVI: " + RunPython.getOutput(2));
         }catch(Exception e){System.out.println("Error in \"writeSMVI\"\n"+e);}
     }
 

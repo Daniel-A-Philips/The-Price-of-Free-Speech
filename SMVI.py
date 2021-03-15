@@ -1,7 +1,9 @@
 def readData():
     a = []
     for line in open("Data//SMVI_Data.txt"):
-        a.append((int)(line.split(":")[1]))
+        if "\n" in line:
+            line = line[0:len(line)-2]
+        a.append((float)(line.split(":")[1]))
     foo = V2(a[0],a[1],a[2],a[3],a[4],a[5])
     print(foo)
 

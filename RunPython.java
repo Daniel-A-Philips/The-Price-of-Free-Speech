@@ -12,8 +12,9 @@ public class RunPython {
         System.out.println("This method has no contents");
     }
 
-    public static String Run(int index) {
+    public static void Run(int index) {
         String fileName = toRun[index];
+        System.out.println("Running \"" + fileName + "\"");
         InputStream output = null;
         String text = "";
         try {
@@ -30,8 +31,6 @@ public class RunPython {
         } catch (Exception e) {
             System.out.println(e);
         }
-        System.out.println(text);
-        return (text);
     }
 
     public static String getOutput(int index){

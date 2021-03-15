@@ -28,7 +28,6 @@ public class Interaction {
             writeHandles();
             System.out.println("created stock");
             stock = new Stock(Ticker,Interval,Slice, forSMVI);
-            System.out.println("finalized stock");
             if(!forSMVI) print("Day SD of " + this.Ticker + ": " + stock.DayDeviation() + "\nDaily Average of " + this.Ticker + ": " + stock.avgDayPrice());
         } catch(Exception e){System.err.println(e + "\nThis error occured in the \"run\" method in \"Interaction\"");}
     }
@@ -82,12 +81,6 @@ public class Interaction {
     }
 
     public ArrayList<String[]> getRawData(){
-        for(String[] sa : stock.RawData){
-            for(String s : sa){
-                System.out.print(s+", ");
-            }
-            System.out.print("\n");
-        }
         return stock.RawData;
     }
 

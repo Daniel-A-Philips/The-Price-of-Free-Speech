@@ -55,9 +55,7 @@ public class Stock {
         Interval += "min";
         Time_Series = "TIME_SERIES_" + Time_Series;
         try{
-            System.out.println("Test");
             URL url = new URL("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
-            System.out.println("https://www.alphavantage.co/query?function="+Time_Series+"&symbol="+Ticker+"&interval="+Interval+"&slice="+Slice+"&apikey="+APIKey);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = url.openStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
