@@ -1,7 +1,6 @@
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
+import java.net.*;
+import java.util.*;
 
 /*
     APIs Used:
