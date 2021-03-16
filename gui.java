@@ -123,13 +123,14 @@ class gui {
         for (int i = 0; i < 12; i++) {
             if (months[i].equalsIgnoreCase(currentmonth)) MonthNumber = i;
         }
-        //Add months from the previous year
+        //Add months from the current year
         for(int i = MonthNumber; i > -1; i--){
             Months.add(months[i]+" "+currentyear);
             monthsLeft--;
         }
         currentyear -= 1;
         int index = 11;
+        //Add months from the previous years
         while(monthsLeft > 0){
             if(index == -1){
                 index = 11;
@@ -144,9 +145,7 @@ class gui {
         IntervalDropdown = new JComboBox(Intervals);
     }
 
-    public static void WriteText(String Text){
-        toPrint += "\n"+Text;
-    }
+    public static void WriteText(String Text){ toPrint += "\n"+Text;}
 
     
     private static void writeSMVI(){

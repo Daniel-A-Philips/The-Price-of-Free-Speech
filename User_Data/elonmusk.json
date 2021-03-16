@@ -1,6 +1,11 @@
 {
     "data": [
         {
+            "created_at": "2021-03-15T23:11:50.000Z",
+            "id": "1371600053039722500",
+            "text": "@beeple 420M Doge"
+        },
+        {
             "created_at": "2021-03-15T19:52:47.000Z",
             "id": "1371549960030842893",
             "text": "I\u2019m selling this song about NFTs as an NFT https://t.co/B4EZLlesPx"
@@ -494,17 +499,12 @@
             "created_at": "2021-03-03T03:50:06.000Z",
             "id": "1366959040790601729",
             "text": "@PPathole @Erdayastronaut @LabPadre @Larry_in_Canada Good point"
-        },
-        {
-            "created_at": "2021-03-03T03:46:48.000Z",
-            "id": "1366958209185943552",
-            "text": "@Erdayastronaut @LabPadre @Larry_in_Canada Ok, let\u2019s figure this out tomorrow. I\u2019m all for exciting video coverage, but we also can\u2019t have the place festooned with cameras."
         }
     ],
     "meta": {
-        "newest_id": "1371549960030842893",
-        "next_token": "7140dibdnow9c7btw3w3j1wd3gztdx0w37xdr10n9hnaq",
-        "oldest_id": "1366958209185943552",
+        "newest_id": "1371600053039722500",
+        "next_token": "7140dibdnow9c7btw3w3j1wd3h7frph61wkoua1hmqk3d",
+        "oldest_id": "1366959040790601729",
         "result_count": 100
     }
 }
