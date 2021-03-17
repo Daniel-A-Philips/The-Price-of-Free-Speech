@@ -1,6 +1,26 @@
 {
     "data": [
         {
+            "created_at": "2021-03-17T01:21:16.000Z",
+            "id": "1371995012825763842",
+            "text": "@Rjdlandscapes @Erdayastronaut @SpaceX That\u2019s our goal"
+        },
+        {
+            "created_at": "2021-03-17T01:20:54.000Z",
+            "id": "1371994922291765255",
+            "text": "SN11 almost ready to fly https://t.co/fXmjJZOiKk"
+        },
+        {
+            "created_at": "2021-03-17T01:18:48.000Z",
+            "id": "1371994394484690948",
+            "text": "@Erdayastronaut @SpaceX cgi irl"
+        },
+        {
+            "created_at": "2021-03-16T23:41:44.000Z",
+            "id": "1371969967176957956",
+            "text": "Actually, doesn\u2019t feel quite right selling this. Will pass."
+        },
+        {
             "created_at": "2021-03-15T23:11:50.000Z",
             "id": "1371600053039722500",
             "text": "@beeple 420M Doge"
@@ -179,332 +199,11 @@
             "created_at": "2021-03-11T12:45:07.000Z",
             "id": "1369992784325791750",
             "text": "@DraperYounce Wow!"
-        },
-        {
-            "created_at": "2021-03-11T11:14:31.000Z",
-            "id": "1369969983632064513",
-            "text": "@_Shameless_Plug @Falcon9Block5 @bluemoondance74 @arstechnica @SciGuySpace .@BoredElonMusk"
-        },
-        {
-            "created_at": "2021-03-11T11:11:56.000Z",
-            "id": "1369969332114096133",
-            "text": "@WholeMarsBlog Like @CyberpunkGame, but *with* self-driving haha"
-        },
-        {
-            "created_at": "2021-03-11T08:48:41.000Z",
-            "id": "1369933283174318082",
-            "text": "@PPathole @arstechnica @SciGuySpace If 2021 manifest is met, SpaceX will do ~75% of total Earth payload to orbit with Falcon.\n\nA single Starship is designed to do in a day what all rockets on Earth currently do in a year. \n\nEven so, ~1000 Starships will take ~20 years to build a self-sustaining city on Mars."
-        },
-        {
-            "created_at": "2021-03-11T08:16:34.000Z",
-            "id": "1369925199131475968",
-            "text": "RT @SpaceX: Liftoff! https://t.co/Dth6zbYtR4"
-        },
-        {
-            "created_at": "2021-03-11T07:54:33.000Z",
-            "id": "1369919659898789891",
-            "text": "@TezlaMick @arstechnica @SciGuySpace Yes"
-        },
-        {
-            "created_at": "2021-03-11T07:51:30.000Z",
-            "id": "1369918893771395078",
-            "text": "@arstechnica @SciGuySpace Falcon 9 is almost always at max capacity. When it has \u201cspare\u201d performance, it flies back to land, which costs much less than using a droneship.\n\nOur fundamental constraint is mass to orbit per unit time. Last year, SpaceX launched roughly double payload mass of rest of world."
-        },
-        {
-            "created_at": "2021-03-11T07:13:24.000Z",
-            "id": "1369909304334123009",
-            "text": "@WholeMarsBlog @Herbert_Diess Fuel cells should be called fool sells! Such a silly choice for cars. Not great even for a rocket upper stage imo, but at least not absurd."
-        },
-        {
-            "created_at": "2021-03-10T14:32:18.000Z",
-            "id": "1369657371384025088",
-            "text": "@PPathole I was just up there. Elevator on the other side. Floor is in, glass coming soon."
-        },
-        {
-            "created_at": "2021-03-10T03:23:29.000Z",
-            "id": "1369489056350883840",
-            "text": "@Erdayastronaut @tobyliiiiiiiiii @NASASpaceflight Yeah, we talked about that internally. Could just have it land on a big net or bouncy castle. Lacks dignity, but would work. But, optimized landing propellant is only ~5% of dry mass, so it\u2019s not a gamechanger."
-        },
-        {
-            "created_at": "2021-03-10T01:21:41.000Z",
-            "id": "1369458403248988160",
-            "text": "@tobyliiiiiiiiii @Erdayastronaut @NASASpaceflight Might just catch the ship with the launch tower, same as booster"
-        },
-        {
-            "created_at": "2021-03-10T00:07:52.000Z",
-            "id": "1369439826982936580",
-            "text": "@ashleevance Battery energy density is the key to electric aircraft. Autonomy for aircraft could have been done a long time ago. Modern airliners are very close to autonomous."
-        },
-        {
-            "created_at": "2021-03-10T00:04:33.000Z",
-            "id": "1369438991943151620",
-            "text": "@Erdayastronaut @NASASpaceflight There were baffles, but one may have acted like a straw to suck bubbles in from above liquid/gas level. \n\nSomething similar happened on an early Falcon 1 flight, resulting in unexpectedly high liquid oxygen residuals at main engine cutoff."
-        },
-        {
-            "created_at": "2021-03-09T23:27:05.000Z",
-            "id": "1369429565035134986",
-            "text": "@Astro_Soichi \u2665\ufe0f \ud83c\uddef\ud83c\uddf5"
-        },
-        {
-            "created_at": "2021-03-09T20:18:55.000Z",
-            "id": "1369382210894237705",
-            "text": "@NASASpaceflight Fair point. If autogenous pressurization had been used, CH4 bubbles would most likely have reverted to liquid. \n\nHelium in header was used to prevent ullage collapse from slosh, which happened in prior flight. My fault for approving. Sounded good at the time."
-        },
-        {
-            "created_at": "2021-03-09T20:09:48.000Z",
-            "id": "1369379914139451406",
-            "text": "@austinbarnard45 SN10 engine was low on thrust due (probably) to partial helium ingestion from fuel header tank. Impact of 10m/s crushed legs &amp; part of skirt. Multiple fixes in work for SN11."
-        },
-        {
-            "created_at": "2021-03-09T10:58:25.000Z",
-            "id": "1369241155804790785",
-            "text": "@eurotechjunkie @Alpsoy66 @WholeMarsBlog We will ask the regulators"
-        },
-        {
-            "created_at": "2021-03-09T10:43:01.000Z",
-            "id": "1369237279378714629",
-            "text": "@WholeMarsBlog Build 8.3 of FSD should be done QA testing by end of next week, so that\u2019s roughly when download button should show up"
-        },
-        {
-            "created_at": "2021-03-09T10:37:11.000Z",
-            "id": "1369235813079351297",
-            "text": "@WholeMarsBlog Assuming user approves warning &amp; agrees to drive carefully, it will download latest QA-tested FSD \u201cBeta\u201d build as soon as car connects to wifi"
-        },
-        {
-            "created_at": "2021-03-09T08:22:18.000Z",
-            "id": "1369201867842936836",
-            "text": "@CyberpunkGame Delamain AI cabs should be able to drive themselves when you\u2019re in them &amp; be electric by 2077"
-        },
-        {
-            "created_at": "2021-03-09T00:09:50.000Z",
-            "id": "1369077935135625219",
-            "text": "@WholeMarsBlog \u2026 it until you make it"
-        },
-        {
-            "created_at": "2021-03-08T22:24:31.000Z",
-            "id": "1369051431903268865",
-            "text": "@thesheetztweetz Not connecting Tesla cars to Starlink, as our terminal is much too big. This is for aircraft, ships, large trucks &amp; RVs."
-        },
-        {
-            "created_at": "2021-03-08T13:24:16.000Z",
-            "id": "1368915472142401540",
-            "text": "Starbase, Texas https://t.co/mt4IpqqmjF"
-        },
-        {
-            "created_at": "2021-03-08T12:03:27.000Z",
-            "id": "1368895133500936199",
-            "text": "@Harbles It\u2019s all hot air in the end haha"
-        },
-        {
-            "created_at": "2021-03-08T12:00:49.000Z",
-            "id": "1368894470163369986",
-            "text": "@Teslarati @KlenderJoey Still many fine details to address, but the final product will be fantastic. There\u2019s nothing else even close."
-        },
-        {
-            "created_at": "2021-03-08T11:30:16.000Z",
-            "id": "1368886781542682624",
-            "text": "@WholeMarsBlog @klwtts Haha true. Yet, still, so much dignity is ascribed to horses!"
-        },
-        {
-            "created_at": "2021-03-08T10:14:43.000Z",
-            "id": "1368867769211514881",
-            "text": "Carnot efficiency of the Universe?"
-        },
-        {
-            "created_at": "2021-03-08T08:46:25.000Z",
-            "id": "1368845550687117312",
-            "text": "@engineers_feed Ultimately, yes"
-        },
-        {
-            "created_at": "2021-03-07T22:43:39.000Z",
-            "id": "1368693859203436548",
-            "text": "Great band, too bad they broke up https://t.co/VQm7HhHw2M"
-        },
-        {
-            "created_at": "2021-03-06T23:35:31.000Z",
-            "id": "1368344522413903872",
-            "text": "@garyblack00 Update probably in Q2. Cybertruck will be built at Giga Texas, so focus right now is on getting that beast built."
-        },
-        {
-            "created_at": "2021-03-06T23:32:40.000Z",
-            "id": "1368343806823657474",
-            "text": "@westcoastbill The $1400 is mostly good imo (UBI lite), as the people get to choose how the money is spent, but the rest is mostly net bad for the people as a whole (though it is obviously characterized otherwise)."
-        },
-        {
-            "created_at": "2021-03-06T23:08:15.000Z",
-            "id": "1368337660838748162",
-            "text": "@arctechinc Should be very soon. Many subtle differences between US &amp; Canada roads, so harder than it seems."
-        },
-        {
-            "created_at": "2021-03-06T22:53:38.000Z",
-            "id": "1368333982610251776",
-            "text": "@LarryKellogg @arctechinc The Tesla FSD computer started shipping in volume in Q2 2019. 2020 cars should all have FSD computers, whether or not  ordered as an option."
-        },
-        {
-            "created_at": "2021-03-06T22:47:09.000Z",
-            "id": "1368332350602420225",
-            "text": "Availability varies by region due to regulatory approval delays and/or Tesla internal development &amp; testing. \n\nNote: word \u201cBeta\u201d is used to reduce complacency in usage &amp; set expectations appropriately. All software is first tested internally by Tesla simulation &amp; QA drive teams."
-        },
-        {
-            "created_at": "2021-03-06T22:35:23.000Z",
-            "id": "1368329387733512193",
-            "text": "Due to high levels of demand for FSD Beta, adding \u201cDownload Beta\u201d button to Service section of car display in ~10 days https://t.co/D6M3ZiMarG"
-        },
-        {
-            "created_at": "2021-03-06T04:40:30.000Z",
-            "id": "1368058884837928970",
-            "text": "Doge spelled backwards is Egod"
-        },
-        {
-            "created_at": "2021-03-06T04:08:29.000Z",
-            "id": "1368050830797021187",
-            "text": "@WholeMarsBlog Beta V8.3 has literally ~1000 improvements. Will take time to QA internally before release probably in two or three weeks."
-        },
-        {
-            "created_at": "2021-03-06T04:05:34.000Z",
-            "id": "1368050094012960768",
-            "text": "@SomePaleGamer \ud83e\udd23\ud83e\udd23"
-        },
-        {
-            "created_at": "2021-03-06T04:00:31.000Z",
-            "id": "1368048822534868997",
-            "text": "@PPathole @TimSweeneyEpic This was way past leg loads. They got squashed hard."
-        },
-        {
-            "created_at": "2021-03-06T01:57:02.000Z",
-            "id": "1368017749851598850",
-            "text": "If you want the Tesla Full Self-Driving Beta downloaded to your car, let us know. Doubling beta program size now with 8.2 &amp; probably 10X size with 8.3. Still be careful, but it\u2019s getting mature."
-        },
-        {
-            "created_at": "2021-03-06T01:54:02.000Z",
-            "id": "1368016992326709251",
-            "text": "@chicago_glenn @TimSweeneyEpic @TrevorMahlmann Starhopper is an old timer who has seen a lot of things!"
-        },
-        {
-            "created_at": "2021-03-06T01:51:37.000Z",
-            "id": "1368016384458858500",
-            "text": "@TimSweeneyEpic Thrust was low despite being commanded high for reasons unknown at present, hence hard touchdown. We\u2019ve never seen this before.\n\nNext time, min two engines all the way to the ground &amp; restart engine 3 if engine 1 or 2 have issues."
-        },
-        {
-            "created_at": "2021-03-06T01:43:55.000Z",
-            "id": "1368014448426807296",
-            "text": "@TimSweeneyEpic Was super fun tbh haha"
-        },
-        {
-            "created_at": "2021-03-05T23:26:33.000Z",
-            "id": "1367979877496807426",
-            "text": "@Jason Or is this just fantasy?"
-        },
-        {
-            "created_at": "2021-03-05T22:37:43.000Z",
-            "id": "1367967590597816320",
-            "text": "\ud83d\ude44"
-        },
-        {
-            "created_at": "2021-03-05T10:35:28.000Z",
-            "id": "1367785830111047680",
-            "text": "SN10 is in Valhalla now\nhttps://t.co/dHy4tDVGnI"
-        },
-        {
-            "created_at": "2021-03-05T10:32:09.000Z",
-            "id": "1367784992961531905",
-            "text": "Cybervikings of Mars"
-        },
-        {
-            "created_at": "2021-03-05T06:39:13.000Z",
-            "id": "1367726375008804865",
-            "text": "@WholeMarsBlog Tesla AI, both hardware &amp; software, is deeply underestimated"
-        },
-        {
-            "created_at": "2021-03-04T23:25:56.000Z",
-            "id": "1367617336757338112",
-            "text": "@RenataKonkoly @skorusARK \ud83e\udd23\ud83e\udd23"
-        },
-        {
-            "created_at": "2021-03-04T23:04:38.000Z",
-            "id": "1367611973697818628",
-            "text": "@skorusARK Tesla &amp; Ford are the only American carmakers not to have gone bankrupt out of 1000\u2019s of car startups. Prototypes are easy, production is hard &amp; being cash flow positive is excruciating."
-        },
-        {
-            "created_at": "2021-03-04T09:31:42.000Z",
-            "id": "1367407392963575815",
-            "text": "RT @SpaceX: Deployment of 60 Starlink satellites confirmed https://t.co/ta7iXyr7BK"
-        },
-        {
-            "created_at": "2021-03-04T08:09:13.000Z",
-            "id": "1367386635101437952",
-            "text": "RT @SpaceX: T-30 minutes until launch of Starlink. Webcast will go live ~15 minutes before liftoff \u2192 https://t.co/bJFjLCzWdK"
-        },
-        {
-            "created_at": "2021-03-04T04:24:49.000Z",
-            "id": "1367330165144059906",
-            "text": "@Jason cgi irl @spacex"
-        },
-        {
-            "created_at": "2021-03-04T00:40:32.000Z",
-            "id": "1367273722734911491",
-            "text": "@PPathole @SpaceX SpaceX team is doing great work! One day, the true measure of success will be that Starship flights are commonplace."
-        },
-        {
-            "created_at": "2021-03-04T00:37:25.000Z",
-            "id": "1367272937632497664",
-            "text": "@Erdayastronaut @SpaceX RIP SN10, honorable discharge"
-        },
-        {
-            "created_at": "2021-03-04T00:35:12.000Z",
-            "id": "1367272378766614529",
-            "text": "Starship SN10 landed in one piece! https://t.co/lO4AF47MaN"
-        },
-        {
-            "created_at": "2021-03-03T20:39:42.000Z",
-            "id": "1367213114228318209",
-            "text": "Launch abort on slightly conservative high thrust limit. Increasing thrust limit &amp; recycling propellant for another flight attempt today."
-        },
-        {
-            "created_at": "2021-03-03T20:10:07.000Z",
-            "id": "1367205667321171968",
-            "text": "5 mins to Starship test flight attempt"
-        },
-        {
-            "created_at": "2021-03-03T11:59:08.000Z",
-            "id": "1367082108863320070",
-            "text": "March 3rd"
-        },
-        {
-            "created_at": "2021-03-03T11:30:39.000Z",
-            "id": "1367074939317157888",
-            "text": "Starship launch tomorrow. Window opens at 9am."
-        },
-        {
-            "created_at": "2021-03-03T05:13:30.000Z",
-            "id": "1366980026147610624",
-            "text": "@LuvMyModel3 @billhuang688 @F9Block5 @PPathole Yes, beta will be offered much more widely when version 9 is done, hopefully next month"
-        },
-        {
-            "created_at": "2021-03-03T05:11:52.000Z",
-            "id": "1366979618226335746",
-            "text": "RT @yousuck2020: \u3010\u767a\u8868\u30112023\u5e74\u306b\u4e88\u5b9a\u3057\u3066\u3044\u308b\u6708\u65c5\u884c\u306b8\u540d\u69d8\u3092\u3054\u62db\u5f85\u3057\u307e\u3059\u3002\u672c\u65e5\u3088\u308a\u5fdc\u52df\u53d7\u4ed8\u958b\u59cb\u3057\u307e\u3059\uff01\u307f\u3093\u306a\u3067\u697d\u3057\u3044\u65c5\u884c\u306b\u3057\u307e\u3057\u3087\u3046\ud83d\ude80\ud83c\udf0d\ud83c\udf15 #dearMoon\nhttps://t.co/xBtOyJMIUh"
-        },
-        {
-            "created_at": "2021-03-03T04:29:03.000Z",
-            "id": "1366968841209745410",
-            "text": "@billhuang688 @F9Block5 @PPathole FSD beta build V8.1 normally drives me around with no interventions. Next version is a big step change beyond that. Tesla is solving a major part of real-world AI. This is not widely known."
-        },
-        {
-            "created_at": "2021-03-03T04:22:49.000Z",
-            "id": "1366967273999671298",
-            "text": "@LabPadre @SpaceX You\u2019re welcome"
-        },
-        {
-            "created_at": "2021-03-03T03:50:06.000Z",
-            "id": "1366959040790601729",
-            "text": "@PPathole @Erdayastronaut @LabPadre @Larry_in_Canada Good point"
         }
     ],
     "meta": {
-        "newest_id": "1371600053039722500",
-        "next_token": "7140dibdnow9c7btw3w3j1wd3h7frph61wkoua1hmqk3d",
-        "oldest_id": "1366959040790601729",
-        "result_count": 100
+        "newest_id": "1371995012825763842",
+        "oldest_id": "1369992784325791750",
+        "result_count": 40
     }
 }

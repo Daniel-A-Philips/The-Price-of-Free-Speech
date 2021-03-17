@@ -11,6 +11,7 @@ def auth():
     bearer_token = "AAAAAAAAAAAAAAAAAAAAAP5KNAEAAAAAycIuL%2BYXlU9sdi7Z267bDQp%2FfE0%3DAkIyNchX9UmeGO10oUkryZa75J7FP4o5jEyM3m4uMbvwe69sXw"
     return bearer_token
 
+
 def createDate():
     global Dates
     asString = ""
@@ -60,6 +61,7 @@ def connect_to_endpoint(url, headers, params):
         )
     return response.json()
 
+
 def getID():
     file = open(fileName,"r")
     reader = csv.reader(file)
@@ -70,9 +72,11 @@ def getID():
             continue
         ID.append(line)
 
+
 def writeData(data):
     outfile = open(writeFileName,'w')
     outfile.write(data)
+
 
 def writeTotal():
     totalTweets = 0
@@ -92,8 +96,8 @@ def writeTotal():
         line = line[line.index(":")+2:len(line)]
         totalTweets += int(line)
         write_file.write(ID[index][0]+":"+ line)
-        index += 1
-    print(totalTweets)
+        index += 1    
+
 
 def main():
     global fileName
