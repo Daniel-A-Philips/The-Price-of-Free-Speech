@@ -96,7 +96,8 @@ def writeTotal():
         line = line[line.index(":")+2:len(line)]
         totalTweets += int(line)
         write_file.write(ID[index][0]+":"+ line)
-        index += 1    
+        index += 1  
+    print(totalTweets)
 
 
 def main():

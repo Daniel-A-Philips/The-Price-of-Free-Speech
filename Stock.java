@@ -17,7 +17,7 @@ public class Stock {
     protected String Slice;
     protected boolean forSMVI;
     protected String Time_Series = "INTRADAY_EXTENDED";
-    protected String APIKey = "4HRPSUDJ4S8WR99F";
+    final String APIKey = "4HRPSUDJ4S8WR99F";
     protected double LatestOpeningPrice;
     protected double SevenDayOpeningPrice;
 
